@@ -2,16 +2,18 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function BookingForm() {
+  // use the useForm hook to initialise form state and validation
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
+    register, // register inputs for validation
+    handleSubmit, // call onSubmit with validated form data
+    formState: { errors }, // get the current validation errors
+    reset, // reset the form after submission
   } = useForm();
 
+  // define the function to run when the form is submitted
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    console.log(data); // log the validated form data to the console
+    reset(); // reset the form to its initial state
   };
 
   return (
@@ -25,8 +27,6 @@ export default function BookingForm() {
         placeholder="Name"
         required
       />
-
-      {/* <input  {...register("exampleRequired", { required: true })} /> */}
 
       <input
         defaultValue=""
@@ -56,7 +56,3 @@ export default function BookingForm() {
     </form>
   );
 }
-
-/**
- * use  react hook form
- */
