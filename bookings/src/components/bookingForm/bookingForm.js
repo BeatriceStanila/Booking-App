@@ -1,7 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import DateSelector from "../dateSelector/dateSelector";
+import TimeSelector from "../timeSelector/timeSelector";
 
-export default function BookingForm() {
+export default function BookingForm({
+  selectedDate,
+  setSelectedDate,
+  selectedTime,
+  setSelectedTime,
+  name,
+  setName,
+  service,
+  setService,
+}) {
   // use the useForm hook to initialise form state and validation
   const {
     register, // register inputs for validation
@@ -12,7 +23,14 @@ export default function BookingForm() {
 
   // define the function to run when the form is submitted
   const onSubmit = (data) => {
-    console.log(data); // log the validated form data to the console
+    console.log({
+      ...data,
+      selectedDate,
+      selectedTime,
+    }); // log the validated form data to the console
+
+    setSelectedDate(null);
+
     reset(); // reset the form to its initial state
   };
 
@@ -20,28 +38,24 @@ export default function BookingForm() {
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Book an appointment</h1>
-
+      <label htmlFor="name">Name</label>
       <input
-        defaultValue=""
+        defaultValue={name}
         {...register("name")}
-        placeholder="Name"
         required
+        onChange={(e) => setName(e.target.value)}
       />
+      <label htmlFor="phone">Contact Number</label>
+      <input defaultValue="" {...register("phoneNumber")} required />
 
-      <input
-        defaultValue=""
-        placeholder="Contact Number"
-        {...register("phoneNumber")}
-        required
-      />
-
-      <label for="services">Choose a service:</label>
+      <label htmlFor="services">Service</label>
       <select
         id="services"
         className="w-30"
         {...register("service")}
-        default=""
+        default={service}
         required
+        onChange={(e) => setService(e.target.value)}
       >
         <option value=""></option>
         <option value="Occasion Makeup">Occasion Makeup</option>
@@ -50,9 +64,17 @@ export default function BookingForm() {
         <option value="4D Lashes">4D Lashes</option>
       </select>
 
+      <DateSelector setSelectedDate={setSelectedDate} />
+      {selectedDate && (
+        <TimeSelector
+          selectedDate={selectedDate}
+          setSelectedTime={setSelectedTime}
+        />
+      )}
+
       {errors.exampleRequired && <span>This field is required</span>}
 
-      <input type="submit" />
+      {selectedTime && <input type="submit" />}
     </form>
   );
 }
