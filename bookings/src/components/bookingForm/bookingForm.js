@@ -12,6 +12,7 @@ export default function BookingForm({
   setName,
   service,
   setService,
+  handleFormSubmit,
 }) {
   // use the useForm hook to initialise form state and validation
   const {
@@ -30,8 +31,8 @@ export default function BookingForm({
     }); // log the validated form data to the console
 
     setSelectedDate(null);
-
     reset(); // reset the form to its initial state
+    handleFormSubmit();
   };
 
   return (

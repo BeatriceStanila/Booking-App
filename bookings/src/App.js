@@ -8,25 +8,35 @@ function App() {
   const [selectedTime, setSelectedTime] = useState(null);
   const [name, setName] = useState("");
   const [service, setService] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = () => {
+    setFormSubmitted(true);
+  };
 
   return (
     <div className="App">
-      <BookingForm
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        selectedTime={selectedTime}
-        setSelectedTime={setSelectedTime}
-        name={name}
-        setName={setName}
-        service={service}
-        setService={setService}
-      />
-      <BookingConfirmation
-        day={selectedDate}
-        time={selectedTime}
-        name={name}
-        service={service}
-      />
+      {!formSubmitted && (
+        <BookingForm
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          selectedTime={selectedTime}
+          setSelectedTime={setSelectedTime}
+          name={name}
+          setName={setName}
+          service={service}
+          setService={setService}
+          handleFormSubmit={handleFormSubmit}
+        />
+      )}
+      {formSubmitted && (
+        <BookingConfirmation
+          day={selectedDate}
+          time={selectedTime}
+          name={name}
+          service={service}
+        />
+      )}
     </div>
   );
 }

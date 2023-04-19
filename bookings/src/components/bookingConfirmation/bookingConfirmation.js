@@ -6,7 +6,7 @@ export default function BookingConfirmation({ day, name, time, service }) {
       <h1>Booking Completed!</h1>
 
       <p>
-        Hi, {name}!I am excited to see you on at {time} for your {service}{" "}
+        Hi, {name}! I am excited to see you at {time} for your {service}{" "}
         appointment!
       </p>
       <p>Much Love,</p>
