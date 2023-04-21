@@ -10,9 +10,12 @@ export default function BookingForm({
   setSelectedTime,
   name,
   setName,
+  phoneNumber,
+  setPhoneNumber,
   service,
   setService,
   handleFormSubmit,
+  saveAppDetails,
 }) {
   // use the useForm hook to initialise form state and validation
   const {
@@ -24,15 +27,13 @@ export default function BookingForm({
 
   // define the function to run when the form is submitted
   const onSubmit = (data) => {
-    console.log({
-      ...data,
-      selectedDate,
-      selectedTime,
-    }); // log the validated form data to the console
+    console.log({ ...data, setPhoneNumber }); // log the validated form data to the console
 
-    setSelectedDate(null);
+    console.log(typeof data.phoneNumber);
+
     reset(); // reset the form to its initial state
     handleFormSubmit();
+    saveAppDetails();
   };
 
   return (
@@ -47,7 +48,12 @@ export default function BookingForm({
         onChange={(e) => setName(e.target.value)}
       />
       <label htmlFor="phone">Contact Number</label>
-      <input defaultValue="" {...register("phoneNumber")} required />
+      <input
+        defaultValue={phoneNumber}
+        {...register("phoneNumber")}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        required
+      />
 
       <label htmlFor="services">Service</label>
       <select
