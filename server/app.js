@@ -1,13 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import { router } from "./routes/getRoutes.js";
+import { router } from "./routes/handlers.js";
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
 
@@ -27,8 +28,6 @@ mongoose
   .catch((err) => {
     console.log("DB NOT Connected" + err);
   });
-
-// CRUD operations
 
 app.use("/", router);
 
