@@ -53,7 +53,7 @@ function App() {
       )}
       {formSubmitted && (
         <BookingConfirmation
-          day={selectedDate}
+          date={selectedDate}
           time={selectedTime}
           name={name}
           service={service}

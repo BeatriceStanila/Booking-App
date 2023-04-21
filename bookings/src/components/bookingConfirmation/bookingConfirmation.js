@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function BookingConfirmation({ day, name, time, service }) {
+export default function BookingConfirmation({ date, name, time, service }) {
   return (
     <div>
       <h1>Booking Completed!</h1>
 
       <p>
-        Hi, {name}! I am excited to see you at {time} for your {service}{" "}
-        appointment!
+        Hi, {name}! I am excited to see you on {date} at {time} for your{" "}
+        {service} appointment!
       </p>
       <p>Much Love,</p>
       <p>Cosmina x </p>

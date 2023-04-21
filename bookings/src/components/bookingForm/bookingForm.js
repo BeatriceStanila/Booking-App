@@ -39,7 +39,7 @@ export default function BookingForm({
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Book an appointment</h1>
+      <h1 className="text-3xl font-bold underline">Book an appointment</h1>
       <label htmlFor="name">Name</label>
       <input
         defaultValue={name}
