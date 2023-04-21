@@ -26,13 +26,14 @@ router.get("/", async (req, res) => {
 });
 
 /** POST REQUESTS */
-router.post("/clients/posts", async (req, res) => {
+router.post("/add", async (req, res) => {
   try {
     const client = await Model.create({
       name: req.body.name,
-      mobileNumber: req.body.mobileNumber,
+      phoneNumber: req.body.phoneNumber,
       service: req.body.service,
       date: req.body.date,
+      time: req.body.time,
     });
 
     console.log(client);
