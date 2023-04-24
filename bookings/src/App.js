@@ -3,6 +3,7 @@ import { useState } from "react";
 import BookingForm from "./components/bookingForm/bookingForm";
 import BookingConfirmation from "./components/bookingConfirmation/bookingConfirmation";
 import axios from "axios";
+import GetBookings from "./components/getBookings/getBookings";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -53,12 +54,13 @@ function App() {
       )}
       {formSubmitted && (
         <BookingConfirmation
-          date={selectedDate}
+          date={selectedDate.toLocaleDateString()}
           time={selectedTime}
           name={name}
           service={service}
         />
       )}
+      <GetBookings />
     </div>
   );
 }

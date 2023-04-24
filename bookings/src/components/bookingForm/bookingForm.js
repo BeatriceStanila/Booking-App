@@ -27,9 +27,7 @@ export default function BookingForm({
 
   // define the function to run when the form is submitted
   const onSubmit = (data) => {
-    console.log({ ...data, setPhoneNumber }); // log the validated form data to the console
-
-    console.log(typeof data.phoneNumber);
+    console.log({ ...data }); // log the validated form data to the console
 
     reset(); // reset the form to its initial state
     handleFormSubmit();
