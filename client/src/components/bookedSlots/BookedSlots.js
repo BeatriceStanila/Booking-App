@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-function SlotsAvailable({ bookedSlots, setBookedSlots, date }) {
+function BookedSlots({ bookedSlots, setBookedSlots }) {
   useEffect(() => {
     axios.get(process.env.REACT_APP_GET_ALL_BOOKINGS).then((response) => {
       const slotsBooked = response.data.map((booking) => [
@@ -17,4 +17,4 @@ function SlotsAvailable({ bookedSlots, setBookedSlots, date }) {
   return <div>SlotsAvailable</div>;
 }
 
-export default SlotsAvailable;
+export default BookedSlots;
