@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 function BookedSlots({ bookedSlots, setBookedSlots }) {
@@ -14,7 +14,7 @@ function BookedSlots({ bookedSlots, setBookedSlots }) {
   }, [setBookedSlots]);
 
   console.log(bookedSlots, "Booked Slots");
-  return <div>SlotsAvailable</div>;
+  console.log(typeof bookedSlots, "type of ");
 }
 
 export default BookedSlots;

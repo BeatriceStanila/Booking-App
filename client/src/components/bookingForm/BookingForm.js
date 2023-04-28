@@ -18,6 +18,8 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
   const { register, control, handleSubmit, formState, setValue } = form;
   const { errors } = formState;
 
+  console.log(typeof booked);
+
   // check availability of date and time
   function checkIfSlotAvailable(date, time) {
     let convertedDate = date.toLocaleDateString();
@@ -29,8 +31,13 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
 
   function handleSlotSelection(date, time) {
     if (checkIfSlotAvailable(date, time)) {
-      console.log(date, time, "date and time from the handleSlots fn");
-      setBookedSlots(date, time);
+      setBookedSlots([
+        ...bookedSlots,
+        [
+          date.toLocaleDateString(),
+          time.toLocaleTimeString([], { timeStyle: "short" }),
+        ],
+      ]);
     } else {
       // The selected slot is not available, so show a message
       alert("Date or time is not available");
@@ -43,14 +50,14 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
     const formattedDate = date.toLocaleDateString(); // format date as YYYY-MM-DD
     const formattedTime = time.toLocaleTimeString([], { timeStyle: "short" }); // format time as HH:MM AM/PM
 
-    console.log({
-      name: name,
-      phoneNumber: phoneNumber,
-      service: service,
-      date: formattedDate,
-      time: formattedTime,
-      message: message,
-    });
+    // console.log({
+    //   name: name,
+    //   phoneNumber: phoneNumber,
+    //   service: service,
+    //   date: formattedDate,
+    //   time: formattedTime,
+    //   message: message,
+    // });
 
     axios
       .post(URL, {
@@ -65,6 +72,7 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
         console.log(response);
       });
   }
+
   const onSubmit = (data) => {
     console.log("form submitted", data);
     saveAppDetails();
@@ -75,7 +83,7 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
     <div id="appointment-form">
       <h1>Book an Appointment ({renderCount / 2})</h1>
       <form className="grid " onSubmit={handleSubmit(onSubmit)}>
-        {bookedSlots.map((slot) => (
+        {Object.entries(bookedSlots).map((slot) => (
           <div key={`${slot[0]}-${slot[1]}`}>
             {slot[0]} at {slot[1]}
           </div>
@@ -104,69 +112,68 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
           className="  border-2 border-gray-200 rounded w-100 py-2 "
         />
 
-        <button onClick={() => handleSlotSelection(date, time)}>
+        <button
+          onClick={() => handleSlotSelection(date, time)}
+          className="  border-2 border-gray-200 rounded w-50 py-2 "
+        >
           Check Availability
         </button>
 
         <p className=" text-red-500">{errors.date?.message}</p>
 
-        {!bookedSlots && (
-          <>
-            <label htmlFor="name">Full Name</label>
-            <input
-              defaultValue={name}
-              type="text"
-              id="name"
-              {...register("name", {
-                required: { value: true, message: "Full name is required" },
-              })}
-              onChange={(e) => setName(e.target.value)}
-              className="border-2 border-gray-200 rounded w-100 py-2 "
-            />
-            <p className=" text-red-500">{errors.name?.message}</p>
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input
-              defaultValue={phoneNumber}
-              type="text"
-              id="phone"
-              {...register("phoneNumber", {
-                required: { value: true, message: "Phone number is required" },
-              })}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              className="  border-2 border-gray-200 rounded w-100 py-2 "
-            />
-            <p className=" text-red-500">{errors.phoneNumber?.message}</p>
-            <label htmlFor="service">Select service</label>
-            <select
-              defaultValue={service}
-              id="service"
-              {...register("service", {
-                required: { value: true, message: "Service is required" },
-              })}
-              onChange={(e) => setService(e.target.value)}
-              className="  border-2 border-gray-200 rounded w-100 py-2 "
-            >
-              <option value="occasion-makeup">Occasion Makeup</option>
-              <option value="bridal-makeup">Bridal Makeup</option>
-              <option value="3d-lashes">3D Lashes</option>
-              <option value="4d-lashes">4D Lashes</option>
-            </select>
-            <p className=" text-red-500">{errors.service?.message}</p>
-            <label htmlFor="details">Do you want to add some details?</label>
-            <textarea
-              defaultValue={message}
-              rows="5"
-              cols="10"
-              className="border-2 border-gray-200 rounded w-100 py-2"
-              {...register("message")}
-              onChange={(e) => {
-                setValue("message", e.target.value);
-                setMessage(e.target.value);
-              }}
-            />
-            <button type="submit">Submit</button>
-          </>
-        )}
+        <label htmlFor="name">Full Name</label>
+        <input
+          defaultValue={name}
+          type="text"
+          id="name"
+          {...register("name", {
+            required: { value: true, message: "Full name is required" },
+          })}
+          onChange={(e) => setName(e.target.value)}
+          className="border-2 border-gray-200 rounded w-100 py-2 "
+        />
+        <p className=" text-red-500">{errors.name?.message}</p>
+        <label htmlFor="phoneNumber">Phone Number</label>
+        <input
+          defaultValue={phoneNumber}
+          type="text"
+          id="phone"
+          {...register("phoneNumber", {
+            required: { value: true, message: "Phone number is required" },
+          })}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          className="  border-2 border-gray-200 rounded w-100 py-2 "
+        />
+        <p className=" text-red-500">{errors.phoneNumber?.message}</p>
+        <label htmlFor="service">Select service</label>
+        <select
+          defaultValue={service}
+          id="service"
+          {...register("service", {
+            required: { value: true, message: "Service is required" },
+          })}
+          onChange={(e) => setService(e.target.value)}
+          className="  border-2 border-gray-200 rounded w-100 py-2 "
+        >
+          <option value="occasion-makeup">Occasion Makeup</option>
+          <option value="bridal-makeup">Bridal Makeup</option>
+          <option value="3d-lashes">3D Lashes</option>
+          <option value="4d-lashes">4D Lashes</option>
+        </select>
+        <p className=" text-red-500">{errors.service?.message}</p>
+        <label htmlFor="details">Do you want to add some details?</label>
+        <textarea
+          defaultValue={message}
+          rows="5"
+          cols="10"
+          className="border-2 border-gray-200 rounded w-100 py-2"
+          {...register("message")}
+          onChange={(e) => {
+            setValue("message", e.target.value);
+            setMessage(e.target.value);
+          }}
+        />
+        <button type="submit">Submit</button>
       </form>
       <DevTool control={control} />
     </div>
