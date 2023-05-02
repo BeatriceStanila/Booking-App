@@ -97,7 +97,6 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
     <div id="appointment-form">
       <h1>Book an Appointment ({renderCount / 2})</h1>
       <form className="grid " onSubmit={handleSubmit(onSubmit)}>
-      
         <label htmlFor="date">Select Date</label>
         <DatePicker
           selected={date}
@@ -131,15 +130,16 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
 
         <Modal
           isOpen={modalIsOpen}
+          ariaHideApp={false}
           onRequestClose={closeModal}
           contentLabel="Date and time not available"
           className="fixed inset-0 bg-rebeccapurple flex justify-center items-center"
         >
-          <div class="absolute w-96 h-80 bg-white rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
+          <div className="absolute w-96 h-80 bg-white rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
             <h1 className="text-2xl font-bold mb-2">Slot Not Available ☹️</h1>
             <p className="text-center mb-4">
               I'm sorry but this slot is not available. Please select another
-              date and time. 
+              date and time.
             </p>
             <p>Comsina x</p>
             <button
