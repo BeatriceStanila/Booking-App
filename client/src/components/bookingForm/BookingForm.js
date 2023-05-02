@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import axios from "axios";
 import DatePicker from "react-datepicker";
+import Modal from "react-modal";
 
 let renderCount = 0;
 
@@ -13,12 +14,20 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [message, setMessage] = useState("");
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const form = useForm();
   const { register, control, handleSubmit, formState, setValue } = form;
   const { errors } = formState;
 
-  console.log(typeof booked);
+  // functions for the modal window
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   // check availability of date and time
   function checkIfSlotAvailable(date, time) {
@@ -29,8 +38,10 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
     );
   }
 
+  // a fn that will open a modal window with a message if date or time not available
   function handleSlotSelection(date, time) {
     if (checkIfSlotAvailable(date, time)) {
+      closeModal();
       setBookedSlots([
         ...bookedSlots,
         [
@@ -40,11 +51,13 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
       ]);
     } else {
       // The selected slot is not available, so show a message
-      alert("Date or time is not available");
+      // alert("Date or time is not available");
+      openModal();
     }
   }
 
-  function saveAppDetails() {
+  // function that will make a post request to mongodb with the client's details
+  function saveAppointmentDetails() {
     const URL = process.env.REACT_APP_BOOKING_DETAILS;
 
     const formattedDate = date.toLocaleDateString(); // format date as YYYY-MM-DD
@@ -73,9 +86,10 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
       });
   }
 
+  // function that handles the submission of the form
   const onSubmit = (data) => {
     console.log("form submitted", data);
-    saveAppDetails();
+    saveAppointmentDetails();
   };
 
   renderCount++;
@@ -83,11 +97,7 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
     <div id="appointment-form">
       <h1>Book an Appointment ({renderCount / 2})</h1>
       <form className="grid " onSubmit={handleSubmit(onSubmit)}>
-        {Object.entries(bookedSlots).map((slot) => (
-          <div key={`${slot[0]}-${slot[1]}`}>
-            {slot[0]} at {slot[1]}
-          </div>
-        ))}
+      
         <label htmlFor="date">Select Date</label>
         <DatePicker
           selected={date}
@@ -118,6 +128,28 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
         >
           Check Availability
         </button>
+
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Date and time not available"
+          className="fixed inset-0 bg-rebeccapurple flex justify-center items-center"
+        >
+          <div class="absolute w-96 h-80 bg-white rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
+            <h1 className="text-2xl font-bold mb-2">Slot Not Available ☹️</h1>
+            <p className="text-center mb-4">
+              I'm sorry but this slot is not available. Please select another
+              date and time. 
+            </p>
+            <p>Comsina x</p>
+            <button
+              className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+              onClick={closeModal}
+            >
+              OK
+            </button>
+          </div>
+        </Modal>
 
         <p className=" text-red-500">{errors.date?.message}</p>
 

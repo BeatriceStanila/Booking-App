@@ -13,8 +13,7 @@ function BookedSlots({ bookedSlots, setBookedSlots }) {
     });
   }, [setBookedSlots]);
 
-  console.log(bookedSlots, "Booked Slots");
-  console.log(typeof bookedSlots, "type of ");
+
 }
 
 export default BookedSlots;
