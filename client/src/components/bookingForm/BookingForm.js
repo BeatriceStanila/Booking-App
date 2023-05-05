@@ -63,15 +63,6 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
     const formattedDate = date.toLocaleDateString(); // format date as YYYY-MM-DD
     const formattedTime = time.toLocaleTimeString([], { timeStyle: "short" }); // format time as HH:MM AM/PM
 
-    // console.log({
-    //   name: name,
-    //   phoneNumber: phoneNumber,
-    //   service: service,
-    //   date: formattedDate,
-    //   time: formattedTime,
-    //   message: message,
-    // });
-
     axios
       .post(URL, {
         name: name,
@@ -96,117 +87,160 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
   return (
     <div id="appointment-form">
       <h1>Book an Appointment ({renderCount / 2})</h1>
-      <form className="grid " onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="date">Select Date</label>
-        <DatePicker
-          selected={date}
-          onChange={(date) => setDate(date)}
-          dateFormat="yyyy-MM-dd"
-          showIcon
-          minDate={new Date()}
-          className="  border-2 border-gray-200 rounded w-100 py-2 "
-        />
-        <label>Select Time</label>
-        <DatePicker
-          selected={time}
-          onChange={setTime}
-          showTimeSelect
-          showTimeSelectOnly
-          timeIntervals={120}
-          timeCaption="Time"
-          timeFormat="HH:mm"
-          minTime={new Date().setHours(8, 0)}
-          maxTime={new Date().setHours(18, 0)}
-          dateFormat="p"
-          className="  border-2 border-gray-200 rounded w-100 py-2 "
-        />
-
-        <button
-          onClick={() => handleSlotSelection(date, time)}
-          className="  border-2 border-gray-200 rounded w-50 py-2 "
-        >
-          Check Availability
-        </button>
-
-        <Modal
-          isOpen={modalIsOpen}
-          ariaHideApp={false}
-          onRequestClose={closeModal}
-          contentLabel="Date and time not available"
-          className="fixed inset-0 bg-rebeccapurple flex justify-center items-center"
-        >
-          <div className="absolute w-96 h-80 bg-white rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
-            <h1 className="text-2xl font-bold mb-2">Slot Not Available ☹️</h1>
-            <p className="text-center mb-4">
-              I'm sorry but this slot is not available. Please select another
-              date and time.
-            </p>
-            <p>Comsina x</p>
-            <button
-              className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
-              onClick={closeModal}
-            >
-              OK
-            </button>
+      <div className="flex justify-center p-10 w-1/3  bg-slate-200">
+        <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label className="block text-sm font-medium" htmlFor="date">
+              Select Date
+            </label>
+            <div>
+              <DatePicker
+                selected={date}
+                onChange={(date) => setDate(date)}
+                dateFormat="yyyy-MM-dd"
+                showIcon
+                minDate={new Date()}
+                className="border-2 border-gray-300 rounded-lg w-full py-2  px-3 shadow-sm focus:outline-none focus:border-purple-700"
+              />
+            </div>
           </div>
-        </Modal>
 
-        <p className=" text-red-500">{errors.date?.message}</p>
+          <div>
+            <label className="block text-sm font-medium">Select Time</label>
+            <div>
+              <DatePicker
+                selected={time}
+                onChange={setTime}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={120}
+                timeCaption="Time"
+                timeFormat="HH:mm"
+                minTime={new Date().setHours(8, 0)}
+                maxTime={new Date().setHours(18, 0)}
+                dateFormat="p"
+                className="border-2 border-gray-200 rounded w-50 py-2"
+              />
+            </div>
+          </div>
 
-        <label htmlFor="name">Full Name</label>
-        <input
-          defaultValue={name}
-          type="text"
-          id="name"
-          {...register("name", {
-            required: { value: true, message: "Full name is required" },
-          })}
-          onChange={(e) => setName(e.target.value)}
-          className="border-2 border-gray-200 rounded w-100 py-2 "
-        />
-        <p className=" text-red-500">{errors.name?.message}</p>
-        <label htmlFor="phoneNumber">Phone Number</label>
-        <input
-          defaultValue={phoneNumber}
-          type="text"
-          id="phone"
-          {...register("phoneNumber", {
-            required: { value: true, message: "Phone number is required" },
-          })}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          className="  border-2 border-gray-200 rounded w-100 py-2 "
-        />
-        <p className=" text-red-500">{errors.phoneNumber?.message}</p>
-        <label htmlFor="service">Select service</label>
-        <select
-          defaultValue={service}
-          id="service"
-          {...register("service", {
-            required: { value: true, message: "Service is required" },
-          })}
-          onChange={(e) => setService(e.target.value)}
-          className="  border-2 border-gray-200 rounded w-100 py-2 "
-        >
-          <option value="occasion-makeup">Occasion Makeup</option>
-          <option value="bridal-makeup">Bridal Makeup</option>
-          <option value="3d-lashes">3D Lashes</option>
-          <option value="4d-lashes">4D Lashes</option>
-        </select>
-        <p className=" text-red-500">{errors.service?.message}</p>
-        <label htmlFor="details">Do you want to add some details?</label>
-        <textarea
-          defaultValue={message}
-          rows="5"
-          cols="10"
-          className="border-2 border-gray-200 rounded w-100 py-2"
-          {...register("message")}
-          onChange={(e) => {
-            setValue("message", e.target.value);
-            setMessage(e.target.value);
-          }}
-        />
-        <button type="submit">Submit</button>
-      </form>
+          {date && time && (
+            <button
+              onClick={() => handleSlotSelection(date, time)}
+              className="  border-2 border-gray-200 rounded w-50 py-2 "
+            >
+              Check Availability
+            </button>
+          )}
+          <Modal
+            isOpen={modalIsOpen}
+            ariaHideApp={false}
+            onRequestClose={closeModal}
+            contentLabel="Date and time not available"
+            className="fixed inset-0 bg-rebeccapurple flex justify-center items-center"
+          >
+            <div className="absolute w-96 h-80 bg-white rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
+              <h1 className="text-2xl font-bold mb-2">Slot Not Available ☹️</h1>
+              <p className="text-center mb-4">
+                I'm sorry but this slot is not available. Please select another
+                date and time.
+              </p>
+              <p>Comsina x</p>
+              <button
+                className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+                onClick={closeModal}
+              >
+                OK
+              </button>
+            </div>
+          </Modal>
+          <p className=" text-red-500">{errors.date?.message}</p>
+
+          <div>
+            <label className="block text-sm font-medium" htmlFor="name">
+              Full Name
+            </label>
+            <div>
+              <input
+                defaultValue={name}
+                type="text"
+                id="name"
+                {...register("name", {
+                  required: { value: true, message: "Full name is required" },
+                })}
+                onChange={(e) => setName(e.target.value)}
+                className="border-2 border-gray-200 rounded w-100 py-2 "
+              />
+              <p className=" text-red-500">{errors.name?.message}</p>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium" htmlFor="phoneNumber">
+              Phone Number
+            </label>
+            <div>
+              <input
+                defaultValue={phoneNumber}
+                type="text"
+                id="phone"
+                {...register("phoneNumber", {
+                  required: {
+                    value: true,
+                    message: "Phone number is required",
+                  },
+                })}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="  border-2 border-gray-200 rounded w-100 py-2 "
+              />
+              <p className=" text-red-500">{errors.phoneNumber?.message}</p>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium" htmlFor="service">
+              Select service
+            </label>
+            <div>
+              <select
+                defaultValue={service}
+                id="service"
+                {...register("service", {
+                  required: { value: true, message: "Service is required" },
+                })}
+                onChange={(e) => setService(e.target.value)}
+                className="  border-2 border-gray-200 rounded w-100 py-2 "
+              >
+                <option value="occasion-makeup">Occasion Makeup</option>
+                <option value="bridal-makeup">Bridal Makeup</option>
+                <option value="3d-lashes">3D Lashes</option>
+                <option value="4d-lashes">4D Lashes</option>
+              </select>
+              <p className=" text-red-500">{errors.service?.message}</p>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium" htmlFor="details">
+              Do you want to add some details?
+            </label>
+            <div>
+              <textarea
+                defaultValue={message}
+                rows="5"
+                cols="10"
+                className="border-2 border-gray-200 rounded w-100 py-2"
+                {...register("message")}
+                onChange={(e) => {
+                  setValue("message", e.target.value);
+                  setMessage(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
       <DevTool control={control} />
     </div>
   );
