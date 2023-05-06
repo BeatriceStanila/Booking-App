@@ -1,21 +1,29 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 
-export default function BookingForm({ bookedSlots, setBookedSlots }) {
-  const [name, setName] = useState("");
+export default function BookingForm({
+  bookedSlots,
+  setBookedSlots,
+  name,
+  setName,
+  date,
+  setDate,
+  time,
+  setTime,
+  service,
+  setService,
+  handleFormSubmit,
+}) {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [service, setService] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
   const [message, setMessage] = useState("");
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [isAvailable, setIsAvailable] = useState(false);
 
   const form = useForm();
-  const { register, control, handleSubmit, formState, setValue } = form;
+  const { register, handleSubmit, formState, setValue } = form;
   const { errors } = formState;
 
   // functions for the modal window
@@ -47,9 +55,9 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
           time.toLocaleTimeString([], { timeStyle: "short" }),
         ],
       ]);
+      setIsAvailable(true);
     } else {
       // The selected slot is not available, so show a message
-
       openModal();
     }
   }
@@ -57,7 +65,6 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
   // function that will make a post request to mongodb with the client's details
   function saveAppointmentDetails() {
     const URL = process.env.REACT_APP_BOOKING_DETAILS;
-
     const formattedDate = date.toLocaleDateString(); // format date as YYYY-MM-DD
     const formattedTime = time.toLocaleTimeString([], { timeStyle: "short" }); // format time as HH:MM AM/PM
 
@@ -79,6 +86,7 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
   const onSubmit = (data) => {
     console.log("form submitted", data);
     saveAppointmentDetails();
+    handleFormSubmit();
   };
 
   return (
@@ -129,14 +137,13 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
             </div>
           </div>
 
-          {time && (
-            <button
-              onClick={() => handleSlotSelection(date, time)}
-              className="w-full py-3 px-4 border-2 border-btn font-sans rounded-md shadow-lg text-sm font-medium text-title  bg-white hover:bg-btnHover hover:text-white "
-            >
-              Check Availability
-            </button>
-          )}
+          <button
+            onClick={() => handleSlotSelection(date, time)}
+            className="w-full py-3 px-4 border-2 border-btn font-sans rounded-md shadow-lg text-sm font-medium text-title  bg-white hover:bg-btnHover hover:text-white "
+          >
+            Check Availability
+          </button>
+
           <Modal
             isOpen={modalIsOpen}
             ariaHideApp={false}
@@ -163,114 +170,120 @@ export default function BookingForm({ bookedSlots, setBookedSlots }) {
           </Modal>
           <p className="text-sm text-base">{errors.date?.message}</p>
 
-          <div className="mb-5">
-            <label
-              className="block text-sm font-medium  text-title"
-              htmlFor="name"
-            >
-              Full Name
-            </label>
-            <div>
-              <input
-                defaultValue={name}
-                type="text"
-                id="name"
-                {...register("name", {
-                  required: { value: true, message: "Full name is required" },
-                })}
-                onChange={(e) => setName(e.target.value)}
-                className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-              />
-              <p className="text-sm font-thin text-base">
-                {errors.name?.message}
-              </p>
-            </div>
-          </div>
+          {isAvailable && (
+            <>
+              <div className="mb-5">
+                <label
+                  className="block text-sm font-medium  text-title"
+                  htmlFor="name"
+                >
+                  Full Name
+                </label>
+                <div>
+                  <input
+                    defaultValue={name}
+                    type="text"
+                    id="name"
+                    {...register("name", {
+                      required: {
+                        value: true,
+                        message: "Full name is required",
+                      },
+                    })}
+                    onChange={(e) => setName(e.target.value)}
+                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                  />
+                  <p className="text-sm font-thin text-base">
+                    {errors.name?.message}
+                  </p>
+                </div>
+              </div>
 
-          <div className="mb-5">
-            <label
-              className="block text-sm font-medium  text-title"
-              htmlFor="phoneNumber"
-            >
-              Phone Number
-            </label>
-            <div>
-              <input
-                defaultValue={phoneNumber}
-                type="text"
-                id="phone"
-                {...register("phoneNumber", {
-                  required: {
-                    value: true,
-                    message: "Phone number is required",
-                  },
-                })}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-              />
-              <p className="text-sm font-thin text-base">
-                {errors.phoneNumber?.message}
-              </p>
-            </div>
-          </div>
+              <div className="mb-5">
+                <label
+                  className="block text-sm font-medium  text-title"
+                  htmlFor="phoneNumber"
+                >
+                  Phone Number
+                </label>
+                <div>
+                  <input
+                    defaultValue={phoneNumber}
+                    type="text"
+                    id="phone"
+                    {...register("phoneNumber", {
+                      required: {
+                        value: true,
+                        message: "Phone number is required",
+                      },
+                    })}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                  />
+                  <p className="text-sm font-thin text-base">
+                    {errors.phoneNumber?.message}
+                  </p>
+                </div>
+              </div>
 
-          <div className="mb-5">
-            <label
-              className="block text-sm font-medium  text-title"
-              htmlFor="service"
-            >
-              Select Service
-            </label>
-            <div>
-              <select
-                defaultValue={service}
-                id="service"
-                {...register("service", {
-                  required: { value: true, message: "Service is required" },
-                })}
-                onChange={(e) => setService(e.target.value)}
-                className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+              <div className="mb-5">
+                <label
+                  className="block text-sm font-medium  text-title"
+                  htmlFor="service"
+                >
+                  Select Service
+                </label>
+                <div>
+                  <select
+                    defaultValue={service}
+                    id="service"
+                    {...register("service", {
+                      required: { value: true, message: "Service is required" },
+                    })}
+                    onChange={(e) => setService(e.target.value)}
+                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                  >
+                    <option value="default"></option>
+                    <option value="Occasion-Makeup">Occasion Makeup</option>
+                    <option value="Bridal-Makeup">Bridal Makeup</option>
+                    <option value="3D-Lashes">3D Lashes</option>
+                    <option value="4D-Lashes">4D Lashes</option>
+                  </select>
+                  <p className="text-sm text-base">{errors.service?.message}</p>
+                </div>
+              </div>
+
+              <div className="mb-5">
+                <label
+                  className="block text-sm font-medium  text-title"
+                  htmlFor="details"
+                >
+                  Message
+                </label>
+                <div>
+                  <textarea
+                    defaultValue={message}
+                    rows="5"
+                    cols="10"
+                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                    {...register("message")}
+                    onChange={(e) => {
+                      setValue("message", e.target.value);
+                      setMessage(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+              <button
+                className="w-full py-3 px-4 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+                type="submit"
               >
-                <option value="default"></option>
-                <option value="occasion-makeup">Occasion Makeup</option>
-                <option value="bridal-makeup">Bridal Makeup</option>
-                <option value="3d-lashes">3D Lashes</option>
-                <option value="4d-lashes">4D Lashes</option>
-              </select>
-              <p className="text-sm text-base">{errors.service?.message}</p>
-            </div>
-          </div>
-
-          <div className="mb-5">
-            <label
-              className="block text-sm font-medium  text-title"
-              htmlFor="details"
-            >
-              Message
-            </label>
-            <div>
-              <textarea
-                defaultValue={message}
-                rows="5"
-                cols="10"
-                className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-                {...register("message")}
-                onChange={(e) => {
-                  setValue("message", e.target.value);
-                  setMessage(e.target.value);
-                }}
-              />
-            </div>
-          </div>
-          <button
-            className="w-full py-3 px-4 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
-            type="submit"
-          >
-            Book Me
-          </button>
+                Book Me
+              </button>
+            </>
+          )}
         </form>
       </div>
-      <DevTool control={control} />
     </div>
   );
 }
