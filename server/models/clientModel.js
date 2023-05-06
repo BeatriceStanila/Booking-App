@@ -10,6 +10,7 @@ const clientsDetailsSchema = new Schema(
     service: String,
     date: String,
     time: String,
+    message: String,
   },
 
   { collection: "clientsDetails" }
