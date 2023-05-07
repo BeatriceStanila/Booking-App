@@ -137,13 +137,14 @@ export default function BookingForm({
             </div>
           </div>
 
-          <button
-            onClick={() => handleSlotSelection(date, time)}
-            className="w-full py-3 px-4 border-2 border-btn font-sans rounded-md shadow-lg text-sm font-medium text-title  bg-white hover:bg-btnHover hover:text-white "
-          >
-            Check Availability
-          </button>
-
+          {time && (
+            <button
+              onClick={() => handleSlotSelection(date, time)}
+              className="w-full py-3 px-4 border-2 border-darkGreen font-sans rounded-md shadow-lg text-sm font-medium text-title  bg-white hover:bg-green hover:text-white "
+            >
+              Check Availability
+            </button>
+          )}
           <Modal
             isOpen={modalIsOpen}
             ariaHideApp={false}
