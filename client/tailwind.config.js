@@ -8,6 +8,10 @@ module.exports = {
       lg: "976px",
       xl: "1440px",
     },
+    backgroundImage: {
+      "hero-pattern": "url('./public/hero.jpg')",
+      "footer-texture": "url('/img/footer-texture.png')",
+    },
     colors: {
       primary: "#F2E5E5",
       secondary: "#E8C4C4",
