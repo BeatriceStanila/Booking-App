@@ -85,11 +85,11 @@ export default function Example() {
               size="sm"
               className="hidden lg:inline-block bg-btn"
             >
-              <span>Buy Now</span>
+              <span>Book Now</span>
             </Button>
             <IconButton
               variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              className="h-10 w-20 pb-5 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden "
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
@@ -126,17 +126,19 @@ export default function Example() {
             </IconButton>
           </div>
         </div>
-        <Collapse open={openNav}>
-          {navList}
-          <Button
-            variant="gradient"
-            size="sm"
-            fullWidth
-            className="mb-2 bg-btn"
-          >
-            <span>Buy Now</span>
-          </Button>
-        </Collapse>
+        {openNav && (
+          <Collapse open={openNav}>
+            {navList}
+            <Button
+              variant="gradient"
+              size="sm"
+              fullWidth
+              className="mb-2 bg-btn px-3 py-2"
+            >
+              <span>Book Now</span>
+            </Button>
+          </Collapse>
+        )}
       </Navbar>
     </>
   );
