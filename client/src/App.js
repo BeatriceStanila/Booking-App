@@ -7,7 +7,6 @@ import BookedSlots from "./components/bookedSlots/BookedSlots";
 import BookingConfirmation from "./components/bookingConfirmation/BookingConfirmation";
 
 function App() {
-  const [active, setActive] = useState("home");
   const [name, setName] = useState("");
   const [service, setService] = useState("");
   const [date, setDate] = useState("");
@@ -21,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar appearance="tabs" reversed active={active} onSelect={setActive} />
+      <NavBar />
       <BookedSlots setBookedSlots={setBookedSlots} />
       {!formSubmitted && (
         <BookingForm

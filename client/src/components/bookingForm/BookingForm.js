@@ -90,7 +90,7 @@ export default function BookingForm({
   };
 
   return (
-    <div id="appointment-form" className="flex justify-center ">
+    <div id="appointment-form" className="flex justify-center  ">
       <div className="flex justify-center px-10 py-10 w-full md:w-3/4 lg:w-1/2  bg-cream rounded-lg shadow-md">
         <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-10">
