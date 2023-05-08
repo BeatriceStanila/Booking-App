@@ -19,7 +19,7 @@ export default function Footer() {
             <Typography
               as="a"
               href="/#makeup"
-              className="font-normal transition-colors hover:text-btn focus:text-btn hover:font-semibold"
+              className="font-semibold text-xl text-btnHover transition-colors hover:text-btn focus:text-btn "
             >
               Makeup
             </Typography>
@@ -28,7 +28,7 @@ export default function Footer() {
             <Typography
               as="a"
               href="/#lashes"
-              className="font-normal transition-colors hover:text-btn focus:text-btn hover:font-semibold"
+              className="font-semibold text-xl text-btnHover transition-colors hover:text-btn focus:text-btn "
             >
               Lashes
             </Typography>
@@ -49,20 +49,23 @@ export default function Footer() {
       </div>
       <hr className="my-8 border-title" />
 
-      <div className="flex flex-box justify-between py-2 ">
-        <div className="flex-inline">
-          <Typography className="text-btnHover text-2xl font-normal tracking-wider">
-            <BsFillTelephoneFill />
-          </Typography>
-          <Typography>0729438312</Typography>
-
-          <Typography className="text-btnHover text-2xl font-normal tracking-normal">
-            <BsPinMapFill />
-          </Typography>
-          <Typography className="text-md text-btnHover">Ion Creanga</Typography>
+      <div className="flex justify-between py-2">
+        <div>
+          <div className="inline-flex gap-3 items-center">
+            <BsFillTelephoneFill className="text-btnHover text-2xl" />
+            <Typography className=" pr-4 text-lg text-btnHover">
+              0729438312
+            </Typography>
+          </div>
+          <div className="inline-flex gap-3 items-center">
+            <BsPinMapFill className="text-btnHover text-2xl" />
+            <Typography className="text-lg text-btnHover  pr-2">
+              Ion Creanga
+            </Typography>
+          </div>
         </div>
 
-        <div className="inline-flex gap-6 ">
+        <div className="inline-flex gap-6 items-center">
           <a
             href="https://www.instagram.com/cosminacriss/"
             target="_blank"
@@ -84,12 +87,6 @@ export default function Footer() {
           >
             <BsFillEnvelopeFill className="text-3xl text-btnHover hover:text-btn hover:text-4xl" />
           </a>
-        </div>
-
-        <div>
-          <Typography className="text-end font-normal ">
-            &copy; 2023 Cosmina Cristea <br /> Makeup & Lash Artist
-          </Typography>
         </div>
       </div>
     </footer>
