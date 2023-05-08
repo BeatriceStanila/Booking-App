@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
-  MobileNav,
   Typography,
   Button,
   IconButton,
-  Card,
   Collapse,
 } from "@material-tailwind/react";
 
-export default function Example() {
-  const [openNav, setOpenNav] = React.useState(false);
+export default function NavBar() {
+  const [openNav, setOpenNav] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -25,9 +23,9 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-semibold  text-btn text-md"
       >
-        <a href="#makeup" className="flex items-center">
+        <a href="#makeup" className="flex  items-center">
           Makeup
         </a>
       </Typography>
@@ -35,7 +33,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-btn  font-semibold text-md"
       >
         <a href="#lashes" className="flex items-center">
           Lashes
@@ -45,7 +43,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-btn  font-semibold text-md"
       >
         <a href="#price" className="flex items-center">
           Price List
@@ -55,7 +53,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 text-btn  font-semibold text-md"
       >
         <a href="#contact" className="flex items-center">
           Contact Me
@@ -66,14 +64,14 @@ export default function Example() {
 
   return (
     <>
-      <Navbar className=" inset-0 z-10 h-max max-w-full rounded-none py-2 px-2 lg:px-8 lg:py-2 bg-base border-none ">
+      <Navbar className=" inset-0 z-10 h-max max-w-full rounded-none py-2 px-2 lg:px-20 lg:py-2 bg-navbar border-none ">
         <div className="flex items-center justify-between">
           <div className="flex items-center ">
-            <img src="./logo.svg" alt="logo" className="w-20" />
+            <img src="./hero.svg" alt="logo" className="w-20" />
             <Typography
               as="a"
               href="#"
-              className=" cursor-pointer tracking-widest text-logo text-sm font-serif "
+              className=" cursor-pointer tracking-widest text-btn text-md font-semibold font-serif "
             >
               CC | MAKEUP & LASHES
             </Typography>
@@ -83,7 +81,7 @@ export default function Example() {
             <Button
               variant="gradient"
               size="sm"
-              className="hidden lg:inline-block bg-btn"
+              className="hidden lg:inline-block py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
             >
               <span>Book Now</span>
             </Button>
@@ -133,7 +131,7 @@ export default function Example() {
               variant="gradient"
               size="sm"
               fullWidth
-              className="mb-2 bg-btn px-3 py-2"
+              className="mb-2 text-fafa w-1/3 py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
             >
               <span>Book Now</span>
             </Button>

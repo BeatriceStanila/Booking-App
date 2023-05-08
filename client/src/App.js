@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
 // import axios from "axios";
-import NavBar from "./components/navbar/NavBar";
+
 import BookingForm from "./components/bookingForm/BookingForm";
 import BookedSlots from "./components/bookedSlots/BookedSlots";
 import BookingConfirmation from "./components/bookingConfirmation/BookingConfirmation";
+import Hero from "./hero/Hero";
 
 function App() {
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <Hero />
       <BookedSlots setBookedSlots={setBookedSlots} />
       {!formSubmitted && (
         <BookingForm
