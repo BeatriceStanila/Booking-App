@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <Hero />
+      <BookPage />
       <Makeup />
       <Lashes />
-      <BookPage />
       <Contact />
     </div>
   );

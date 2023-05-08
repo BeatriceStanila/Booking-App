@@ -4,10 +4,10 @@ import NavBar from "../navbar/NavBar";
 function Hero() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col bg-hero-pattern  bg-cover bg-no-repeat bg-center w-full  ">
+      <div className="flex flex-col bg-hero-pattern   bg-cover bg-no-repeat bg-center w-full  ">
         <NavBar />
         <div className="relative flex flex-col md:items-left justify-between lg:px-20 px-5">
-          <div className="py-40 lg:py-60 ">
+          <div className="py-60  ">
             <h1 className="uppercase font-semibold tracking-widestt text-title mb-6">
               hi there, gorgeous!
             </h1>
