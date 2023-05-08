@@ -24,8 +24,11 @@ export default function NavBar() {
         variant="small"
         color="blue-gray"
         className="p-1 font-semibold  text-fafa text-md"
+        onClick={() => {
+          setOpenNav(!openNav);
+        }}
       >
-        <a href="#makeup" className="flex  items-center">
+        <a href="/#makeup" className="flex  items-center">
           Makeup
         </a>
       </Typography>
@@ -34,26 +37,23 @@ export default function NavBar() {
         variant="small"
         color="blue-gray"
         className="p-1 text-fafa  font-semibold text-md"
+        onClick={() => {
+          setOpenNav(!openNav);
+        }}
       >
-        <a href="#lashes" className="flex items-center">
+        <a href="/#lashes" className="flex items-center">
           Lashes
         </a>
       </Typography>
+
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 text-fafa  font-semibold text-md"
-      >
-        <a href="#price" className="flex items-center">
-          Pricing
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 text-fafa  font-semibold text-md"
+        onClick={() => {
+          setOpenNav(!openNav);
+        }}
       >
         <a href="/#contact" className="flex items-center scroll-smooth ">
           Contact
@@ -70,7 +70,7 @@ export default function NavBar() {
             <img src="./hero.svg" alt="logo" className="w-20" />
             <Typography
               as="a"
-              href="#"
+              href="/#home"
               className=" cursor-pointer tracking-widest text-white text-md font-semibold font-serif "
             >
               CC | MAKEUP & LASHES
@@ -129,14 +129,19 @@ export default function NavBar() {
         {openNav && (
           <Collapse open={openNav}>
             {navList}
-            <Button
-              variant="gradient"
-              size="sm"
-              fullWidth
-              className="mb-2 text-fafa w-1/3 py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
-            >
-              <span>Book Now</span>
-            </Button>
+            <a href="/#book">
+              <Button
+                variant="gradient"
+                size="sm"
+                fullWidth
+                onClick={() => {
+                  setOpenNav(!openNav);
+                }}
+                className="mb-2 text-fafa w-1/3 py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
+              >
+                <span>Book Now</span>
+              </Button>
+            </a>
           </Collapse>
         )}
       </Navbar>

@@ -18,8 +18,8 @@ function Hero() {
             <h3 className="font-semibold font-serif text-btnHover tracking-widest text-5xl leading-relaxed mb-3">
               Cosmina Cristea
             </h3>
-            <h3 className="text-title font-serif font-bold  tracking-widest text-xl leading-relaxed mb-6">
-              Makeup & Lashes Artist
+            <h3 className="text-title uppercase font-serif font-bold  tracking-widest text-xl leading-relaxed mb-6">
+              Makeup & Lash Artist
             </h3>
 
             <div className="flex gap-4">

@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div>
           <Typography className="text-end font-normal ">
-            &copy; 2023 Cosmina Cristea <br /> Makeup & Lashes Artist
+            &copy; 2023 Cosmina Cristea <br /> Makeup & Lash Artist
           </Typography>
         </div>
       </div>
