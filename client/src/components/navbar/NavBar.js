@@ -46,7 +46,7 @@ export default function NavBar() {
         className="p-1 text-btn  font-semibold text-md"
       >
         <a href="#price" className="flex items-center">
-          Price List
+          Pricing
         </a>
       </Typography>
       <Typography
@@ -56,7 +56,7 @@ export default function NavBar() {
         className="p-1 text-btn  font-semibold text-md"
       >
         <a href="#contact" className="flex items-center">
-          Contact Me
+          Contact
         </a>
       </Typography>
     </ul>

@@ -5,7 +5,8 @@ import "./App.css";
 import BookingForm from "./components/bookingForm/BookingForm";
 import BookedSlots from "./components/bookedSlots/BookedSlots";
 import BookingConfirmation from "./components/bookingConfirmation/BookingConfirmation";
-import Hero from "./hero/Hero";
+import Hero from "./components/hero/Hero";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [name, setName] = useState("");
@@ -46,6 +47,8 @@ function App() {
           service={service}
         />
       )}
+
+      <Footer />
     </div>
   );
 }
