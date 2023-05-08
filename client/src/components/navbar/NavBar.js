@@ -6,6 +6,7 @@ import {
   Button,
   IconButton,
   Card,
+  Collapse,
 } from "@material-tailwind/react";
 
 export default function Example() {
@@ -65,7 +66,7 @@ export default function Example() {
 
   return (
     <>
-      <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-base border-none">
+      <Navbar className=" inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-base border-none ">
         <div className="flex items-center justify-between">
           <div className="flex items-center ">
             <img src="./logo.svg" alt="logo" className="w-20" />
@@ -125,12 +126,17 @@ export default function Example() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <Collapse open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
+          <Button
+            variant="gradient"
+            size="sm"
+            fullWidth
+            className="mb-2 bg-btn"
+          >
             <span>Buy Now</span>
           </Button>
-        </MobileNav>
+        </Collapse>
       </Navbar>
       <div className="mx-auto max-w-screen-md py-12">
         <Card className="mb-12 overflow-hidden">
