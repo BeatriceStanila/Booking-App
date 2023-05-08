@@ -23,7 +23,7 @@ export default function NavBar() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-semibold  text-btn text-md"
+        className="p-1 font-semibold  text-fafa text-md"
       >
         <a href="#makeup" className="flex  items-center">
           Makeup
@@ -33,7 +33,7 @@ export default function NavBar() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 text-btn  font-semibold text-md"
+        className="p-1 text-fafa  font-semibold text-md"
       >
         <a href="#lashes" className="flex items-center">
           Lashes
@@ -43,7 +43,7 @@ export default function NavBar() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 text-btn  font-semibold text-md"
+        className="p-1 text-fafa  font-semibold text-md"
       >
         <a href="#price" className="flex items-center">
           Pricing
@@ -53,9 +53,9 @@ export default function NavBar() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 text-btn  font-semibold text-md"
+        className="p-1 text-fafa  font-semibold text-md"
       >
-        <a href="#contact" className="flex items-center">
+        <a href="/#contact" className="flex items-center scroll-smooth ">
           Contact
         </a>
       </Typography>
@@ -71,20 +71,22 @@ export default function NavBar() {
             <Typography
               as="a"
               href="#"
-              className=" cursor-pointer tracking-widest text-btn text-md font-semibold font-serif "
+              className=" cursor-pointer tracking-widest text-white text-md font-semibold font-serif "
             >
               CC | MAKEUP & LASHES
             </Typography>
           </div>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden lg:inline-block py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
-            >
-              <span>Book Now</span>
-            </Button>
+            <a href="/#book" className=" scroll-m-5">
+              <Button
+                variant="gradient"
+                size="sm"
+                className="hidden lg:inline-block py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
+              >
+                <span>Book Now</span>
+              </Button>
+            </a>
             <IconButton
               variant="text"
               className="h-10 w-20 pb-5 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden "

@@ -4,14 +4,14 @@ import NavBar from "../navbar/NavBar";
 function Hero() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col bg-hero-pattern bg-cover bg-no-repeat bg-center">
+      <div className="flex flex-col bg-hero-pattern bg-cover bg-no-repeat bg-center w-full ">
         <NavBar />
-        <div className="relative flex flex-col items-left justify-between sm:h-screen ">
+        <div className="relative flex flex-col items-left justify-between">
           <div className="px-20 py-60">
-            <h1 classNameName="uppercase font-semibold tracking-widestt text-title mb-3">
+            <h1 className="uppercase font-semibold tracking-widestt text-title mb-6">
               hi there, gorgeous!
             </h1>
-            <h2 className="text-6xl uppercase font-bold tracking-normal w-2/2  mb-3 text-title">
+            <h2 className="text-6xl uppercase font-bold tracking-normal w-2/2  mb-3  text-title">
               {" "}
               Unleash your inner beauty
             </h2>
@@ -25,7 +25,7 @@ function Hero() {
             <div className="flex gap-4">
               <a
                 href="#booking"
-                classNameName=" py-3 px-10 border border-btn rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+                className=" py-3 px-10 border border-btn rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
               >
                 Book Now
               </a>
