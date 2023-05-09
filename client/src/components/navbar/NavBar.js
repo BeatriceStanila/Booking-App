@@ -100,7 +100,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Navbar className=" inset-0 z-10 h-max max-w-full rounded-none py-2 px-2 lg:px-20 lg:py-2 bg-navbar border-none ">
+      <Navbar className=" inset-0 z-10 h-max  max-w-full rounded-none py-2 px-2 lg:px-20 lg:py-2 bg-navbar  border-none ">
         <div className="flex items-center justify-between">
           <div className="flex items-center ">
             <img src="./hero.svg" alt="logo" className="w-20" />
