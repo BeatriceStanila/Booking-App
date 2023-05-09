@@ -24,6 +24,42 @@ export default function NavBar() {
         variant="small"
         color="blue-gray"
         className="p-1 font-semibold  text-fafa text-md"
+      >
+        <a href="/#makeup" className="flex  items-center">
+          Makeup
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 text-fafa  font-semibold text-md"
+      >
+        <a href="/#lashes" className="flex items-center">
+          Lashes
+        </a>
+      </Typography>
+
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 text-fafa  font-semibold text-md"
+      >
+        <a href="/#contact" className="flex items-center scroll-smooth ">
+          Contact
+        </a>
+      </Typography>
+    </ul>
+  );
+
+  const mobileNavList = (
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-semibold  text-fafa text-md"
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -128,7 +164,7 @@ export default function NavBar() {
         </div>
         {openNav && (
           <Collapse open={openNav}>
-            {navList}
+            {mobileNavList}
             <a href="/#book">
               <Button
                 variant="gradient"
