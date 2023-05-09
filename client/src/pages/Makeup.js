@@ -3,7 +3,7 @@ import { makeup } from "../images/makeup";
 
 function Makeup() {
   return (
-    <div id="makeup">
+    <div id="makeup" className="bg-bg">
       <h1 className="text-4xl text-title py-10 px-10 uppercase font-bold tracking-widest ">
         makeup
       </h1>

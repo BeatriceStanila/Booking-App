@@ -22,7 +22,7 @@ function BookPage() {
     setShowConfirmation(true);
   };
   return (
-    <div id="book">
+    <div id="book" className="bg-bg">
       <BookedSlots setBookedSlots={setBookedSlots} />
 
       <BookingForm
