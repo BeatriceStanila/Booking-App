@@ -11,15 +11,14 @@ function BookPage() {
   const [time, setTime] = useState("");
   const [bookedSlots, setBookedSlots] = useState([]);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  // const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const handleCloseConfirmation = () => {
-    setShowConfirmation(false);
-  };
+  // const handleCloseConfirmation = () => {
+  //   setShowConfirmation(false);
+  // };
 
   const handleFormSubmit = () => {
     setFormSubmitted(true);
-    setShowConfirmation(true);
   };
   return (
     <div id="book" className="bg-bg">
@@ -39,13 +38,13 @@ function BookPage() {
         handleFormSubmit={handleFormSubmit}
       />
 
-      {showConfirmation && formSubmitted && (
+      {formSubmitted && (
         <BookingConfirmation
           name={name}
           date={date.toLocaleDateString()}
           time={time.toLocaleTimeString([], { timeStyle: "short" })}
           service={service}
-          onClose={handleCloseConfirmation}
+          formSubmitted={formSubmitted}
         />
       )}
     </div>
