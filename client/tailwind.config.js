@@ -10,10 +10,11 @@ module.exports = {
     },
     backgroundImage: {
       "hero-pattern": "url('../public/test.jpeg')",
+      "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
     },
     colors: {
-      primary: "#F2E5E5",
-      secondary: "#E8C4C4",
+      primary: "#E8C4C4",
+      secondary: "#D14D72",
       base: "#CE7777",
       footer: "#2B3A55",
       cream: "#FDEFEF",
@@ -29,6 +30,7 @@ module.exports = {
       navbar: "#FFABAB",
       fafa: "#FAFAFA",
       powder: "#D894C4",
+      bg: "#FDF8F4",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],

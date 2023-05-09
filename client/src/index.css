@@ -3,11 +3,7 @@ html {
   scroll-behavior: smooth;
 }
 @tailwind components;
-@tailwind utilities {
-  .square {
-    aspect-ratio: 1/1;
-  }
-}
+@tailwind utilities;
 
 @import "react-datepicker/dist/react-datepicker.css";
 body {

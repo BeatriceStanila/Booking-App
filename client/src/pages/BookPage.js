@@ -11,34 +11,41 @@ function BookPage() {
   const [time, setTime] = useState("");
   const [bookedSlots, setBookedSlots] = useState([]);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleCloseConfirmation = () => {
+    setShowConfirmation(false);
+  };
 
   const handleFormSubmit = () => {
     setFormSubmitted(true);
+    setShowConfirmation(true);
   };
   return (
     <div id="book">
       <BookedSlots setBookedSlots={setBookedSlots} />
-      {!formSubmitted && (
-        <BookingForm
-          bookedSlots={bookedSlots}
-          setBookedSlots={setBookedSlots}
-          name={name}
-          setName={setName}
-          date={date}
-          setDate={setDate}
-          time={time}
-          setTime={setTime}
-          service={service}
-          setService={setService}
-          handleFormSubmit={handleFormSubmit}
-        />
-      )}
-      {formSubmitted && (
+
+      <BookingForm
+        bookedSlots={bookedSlots}
+        setBookedSlots={setBookedSlots}
+        name={name}
+        setName={setName}
+        date={date}
+        setDate={setDate}
+        time={time}
+        setTime={setTime}
+        service={service}
+        setService={setService}
+        handleFormSubmit={handleFormSubmit}
+      />
+
+      {showConfirmation && formSubmitted && (
         <BookingConfirmation
           name={name}
           date={date.toLocaleDateString()}
           time={time.toLocaleTimeString([], { timeStyle: "short" })}
           service={service}
+          onClose={handleCloseConfirmation}
         />
       )}
     </div>

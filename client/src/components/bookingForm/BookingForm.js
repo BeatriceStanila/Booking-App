@@ -19,20 +19,20 @@ export default function BookingForm({
 }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isAvailable, setIsAvailable] = useState(false);
 
   const form = useForm();
-  const { register, handleSubmit, formState, setValue } = form;
+  const { register, handleSubmit, formState, reset, setValue } = form;
   const { errors } = formState;
 
   // functions for the modal window
   function openModal() {
-    setIsOpen(true);
+    setModalIsOpen(true);
   }
 
   function closeModal() {
-    setIsOpen(false);
+    setModalIsOpen(false);
   }
 
   // check availability of date and time
@@ -45,7 +45,8 @@ export default function BookingForm({
   }
 
   // a fn that will open a modal window with a message if date or time not available
-  function handleSlotSelection(date, time) {
+  function handleSlotSelection(event, date, time) {
+    event.preventDefault();
     if (checkIfSlotAvailable(date, time)) {
       closeModal();
       setBookedSlots([
@@ -87,203 +88,220 @@ export default function BookingForm({
     console.log("form submitted", data);
     saveAppointmentDetails();
     handleFormSubmit();
+    reset();
   };
 
   return (
-    <div id="appointment-form" className="flex justify-center ">
-      <div className="flex justify-center px-10 py-10 w-full md:w-3/4 lg:w-1/2  bg-cream rounded-lg shadow-md">
-        <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-10">
-            <h1 className="text-title font-bold font-dancing text-center text-4xl">
-              Book Appointment
-            </h1>
-          </div>
-          <div className="mb-5">
-            <label
-              className="block text-sm font-medium text-title mb-1"
-              htmlFor="date"
-            >
-              Select Date
-            </label>
-            <div>
-              <DatePicker
-                selected={date}
-                onChange={(date) => setDate(date)}
-                dateFormat="yyyy-MM-dd"
-                minDate={new Date()}
-                className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary"
-              />
+    <div id="appointment-form" className="flex">
+      <div className="block md:flex lg:justify-between  py-20 px-10 gap-2">
+        <div className=" py-20 md:w-3/4">
+          <h1 className="md:text-6xl text-3xl text-title font-serif font-semibold tracking-wider ">
+            Have a look at my work and make your appointment today! 💜
+          </h1>
+        </div>
+        <div className="flex justify-center px-10 py-10 w-full  md:w-3/4 lg:w-1/2 bg-gradient-to-r from-navbar via-btn to-btnHover  rounded-lg shadow-md">
+          <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-10">
+              <h1 className="text-title font-bold font-dancing text-center text-4xl">
+                Book Appointment
+              </h1>
             </div>
-          </div>
-
-          <div className="mb-5">
-            <label className="block text-sm font-medium  text-title mb-1">
-              Select Time
-            </label>
-            <div>
-              <DatePicker
-                selected={time}
-                onChange={setTime}
-                showTimeSelect
-                showTimeSelectOnly
-                timeIntervals={120}
-                timeCaption="Time"
-                timeFormat="HH:mm"
-                minTime={new Date().setHours(8, 0)}
-                maxTime={new Date().setHours(18, 0)}
-                dateFormat="p"
-                className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-              />
+            <div className="mb-5">
+              <label
+                className="block text-sm font-medium text-title mb-1"
+                htmlFor="date"
+              >
+                Select Date
+              </label>
+              <div>
+                <DatePicker
+                  selected={date}
+                  onChange={(date) => setDate(date)}
+                  dateFormat="yyyy-MM-dd"
+                  minDate={new Date()}
+                  className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary"
+                />
+              </div>
             </div>
-          </div>
 
-          {time && (
+            <div className="mb-5">
+              <label className="block text-sm font-medium  text-title mb-1">
+                Select Time
+              </label>
+              <div>
+                <DatePicker
+                  selected={time}
+                  onChange={setTime}
+                  showTimeSelect
+                  showTimeSelectOnly
+                  timeIntervals={120}
+                  timeCaption="Time"
+                  timeFormat="HH:mm"
+                  minTime={new Date().setHours(8, 0)}
+                  maxTime={new Date().setHours(18, 0)}
+                  dateFormat="p"
+                  className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                />
+              </div>
+            </div>
+
+            {/* {time && ( */}
             <button
-              onClick={() => handleSlotSelection(date, time)}
-              className="w-full py-3 px-4 border-2 border-darkGreen font-sans rounded-md shadow-lg text-sm font-medium text-title  bg-white hover:bg-green hover:text-white "
+              onClick={(event) => handleSlotSelection(event, date, time)}
+              className="w-full py-3 px-4 border-2 border-primary font-sans rounded-md shadow-lg text-sm font-semibold  bg-primary leading-none hover:bg-btn hover:border-btn hover:font-semibold  hover:text-fafa  text-titl"
             >
               Check Availability
             </button>
-          )}
-          <Modal
-            isOpen={modalIsOpen}
-            ariaHideApp={false}
-            onRequestClose={closeModal}
-            contentLabel="Date and time not available"
-            className="fixed inset-0  flex justify-center items-center"
-          >
-            <div className="absolute w-96 h-80 bg-card rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
-              <h1 className="text-2xl font-bold mb-10 text-title">
-                Slot Not Available ☹️
-              </h1>
-              <p className="text-center mb-4 text-body">
-                I'm sorry but this slot is not available. Please select another
-                date and time.
-              </p>
-              <p className="mb-5 text-sm font-semibold text-title">Cosmina x</p>
-              <button
-                className=" px-6 py-2 font-semibold text-title shadow-sm bg-btn rounded hover:bg-btnHover"
-                onClick={closeModal}
-              >
-                OK
-              </button>
-            </div>
-          </Modal>
-          <p className="text-sm text-base">{errors.date?.message}</p>
-
-          {isAvailable && (
-            <>
-              <div className="mb-5">
-                <label
-                  className="block text-sm font-medium  text-title"
-                  htmlFor="name"
+            {/* )} */}
+            <Modal
+              isOpen={modalIsOpen}
+              ariaHideApp={false}
+              onRequestClose={closeModal}
+              contentLabel="Date and time not available"
+              className="fixed inset-0  flex justify-center items-center"
+            >
+              <div className="absolute w-96 h-80 bg-card rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
+                <h1 className="text-2xl font-bold mb-10 text-title">
+                  Slot Not Available ☹️
+                </h1>
+                <p className="text-center mb-4 text-body">
+                  I'm sorry but this slot is not available. Please select
+                  another date and time.
+                </p>
+                <p className="mb-5 text-sm font-semibold text-title">
+                  Cosmina x
+                </p>
+                <button
+                  className=" px-6 py-2 font-semibold text-title shadow-sm bg-btn rounded hover:bg-btnHover"
+                  onClick={closeModal}
                 >
-                  Full Name
-                </label>
-                <div>
-                  <input
-                    defaultValue={name}
-                    type="text"
-                    id="name"
-                    {...register("name", {
-                      required: {
-                        value: true,
-                        message: "Full name is required",
-                      },
-                    })}
-                    onChange={(e) => setName(e.target.value)}
-                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-                  />
-                  <p className="text-sm font-thin text-base">
-                    {errors.name?.message}
-                  </p>
-                </div>
+                  OK
+                </button>
               </div>
+            </Modal>
+            <p className="text-sm text-base">{errors.date?.message}</p>
 
-              <div className="mb-5">
-                <label
-                  className="block text-sm font-medium  text-title"
-                  htmlFor="phoneNumber"
-                >
-                  Phone Number
-                </label>
-                <div>
-                  <input
-                    defaultValue={phoneNumber}
-                    type="text"
-                    id="phone"
-                    {...register("phoneNumber", {
-                      required: {
-                        value: true,
-                        message: "Phone number is required",
-                      },
-                    })}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-                  />
-                  <p className="text-sm font-thin text-base">
-                    {errors.phoneNumber?.message}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mb-5">
-                <label
-                  className="block text-sm font-medium  text-title"
-                  htmlFor="service"
-                >
-                  Select Service
-                </label>
-                <div>
-                  <select
-                    defaultValue={service}
-                    id="service"
-                    {...register("service", {
-                      required: { value: true, message: "Service is required" },
-                    })}
-                    onChange={(e) => setService(e.target.value)}
-                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+            {isAvailable && (
+              <>
+                <div className="mb-5">
+                  <label
+                    className="block text-sm font-medium  text-title"
+                    htmlFor="name"
                   >
-                    <option value="default"></option>
-                    <option value="Occasion-Makeup">Occasion Makeup</option>
-                    <option value="Bridal-Makeup">Bridal Makeup</option>
-                    <option value="3D-Lashes">3D Lashes</option>
-                    <option value="4D-Lashes">4D Lashes</option>
-                  </select>
-                  <p className="text-sm text-base">{errors.service?.message}</p>
+                    Full Name
+                  </label>
+                  <div>
+                    <input
+                      defaultValue={name}
+                      type="text"
+                      id="name"
+                      {...register("name", {
+                        required: {
+                          value: true,
+                          message: "Full name is required",
+                        },
+                      })}
+                      onChange={(e) => setName(e.target.value)}
+                      className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                    />
+                    <p className="text-sm font-thin text-base">
+                      {errors.name?.message}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="mb-5">
-                <label
-                  className="block text-sm font-medium  text-title"
-                  htmlFor="details"
-                >
-                  Message
-                </label>
-                <div>
-                  <textarea
-                    defaultValue={message}
-                    rows="5"
-                    cols="10"
-                    className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
-                    {...register("message")}
-                    onChange={(e) => {
-                      setValue("message", e.target.value);
-                      setMessage(e.target.value);
-                    }}
-                  />
+                <div className="mb-5">
+                  <label
+                    className="block text-sm font-medium  text-title"
+                    htmlFor="phoneNumber"
+                  >
+                    Phone Number
+                  </label>
+                  <div>
+                    <input
+                      defaultValue={phoneNumber}
+                      type="text"
+                      id="phone"
+                      {...register("phoneNumber", {
+                        required: {
+                          value: true,
+                          message: "Phone number is required",
+                        },
+                      })}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                    />
+                    <p className="text-sm font-thin text-base">
+                      {errors.phoneNumber?.message}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <button
-                className="w-full py-3 px-4 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
-                type="submit"
-              >
-                Book Me
-              </button>
-            </>
-          )}
-        </form>
+
+                <div className="mb-5">
+                  <label
+                    className="block text-sm font-medium  text-title"
+                    htmlFor="service"
+                  >
+                    Select Service
+                  </label>
+                  <div>
+                    <select
+                      defaultValue={service}
+                      id="service"
+                      {...register("service", {
+                        required: {
+                          value: true,
+                          message: "Service is required",
+                        },
+                      })}
+                      onChange={(e) => setService(e.target.value)}
+                      className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                    >
+                      <option value="default"></option>
+                      <option value="Occasion-Makeup">Occasion Makeup</option>
+                      <option value="Bridal-Makeup">Bridal Makeup</option>
+                      <option value="3D-Lashes">3D Lashes</option>
+                      <option value="4D-Lashes">4D Lashes</option>
+                    </select>
+                    <p className="text-sm text-base">
+                      {errors.service?.message}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    className="block text-sm font-medium  text-title"
+                    htmlFor="details"
+                  >
+                    Message
+                  </label>
+                  <div>
+                    <textarea
+                      defaultValue={message}
+                      rows="5"
+                      cols="10"
+                      className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+                      {...register("message")}
+                      onChange={(e) => {
+                        setValue("message", e.target.value);
+                        setMessage(e.target.value);
+                      }}
+                    />
+                  </div>
+                </div>
+                <a href="/appointment">
+                  <button
+                    className="w-full py-3 px-4 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+                    type="submit"
+                  >
+                    Book Me
+                  </button>
+                </a>
+              </>
+            )}
+          </form>
+        </div>
       </div>
     </div>
   );

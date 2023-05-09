@@ -1,8 +1,8 @@
 export const makeup = [
   {
-    url: "./images/blonde.jpg",
+    url: "./images/pink.jpg",
     id: "0",
-    alt: "Before Makeup",
+    alt: "After Makeup",
   },
   {
     url: "./images/blonde1.jpg",
@@ -10,9 +10,9 @@ export const makeup = [
     alt: "After Makeup",
   },
   {
-    url: "./images/bridal1.jpg",
+    url: "./images/prom1.jpg",
     id: "2",
-    alt: "Before Makeup",
+    alt: "After Makeup",
   },
   {
     url: "./images/bridal2.jpg",
@@ -20,9 +20,9 @@ export const makeup = [
     alt: "After Makeup",
   },
   {
-    url: "./images/green0.jpg",
+    url: "./images/green1.jpg",
     id: "4",
-    alt: "Before Makeup",
+    alt: "After Makeup",
   },
   {
     url: "./images/green.jpg",
@@ -30,30 +30,30 @@ export const makeup = [
     alt: "After Makeup",
   },
   {
-    url: "./images/prom.jpg",
+    url: "./images/smokey0.jpg",
     id: "6",
-    alt: "Before Makeup",
+    alt: "After Makeup",
   },
   {
-    url: "./images/prom1.jpg",
+    url: "./images/smokey.jpg",
     id: "7",
     alt: "After Makeup",
   },
   {
-    url: "./images/red1.jpg",
+    url: "./images/red-occasion.jpg",
     id: "8",
-    alt: "Before Makeup",
+    alt: "After Makeup",
   },
 
   {
-    url: "./images/red-occasion.jpg",
+    url: "./images/red.jpg",
     id: "9",
     alt: "After Makeup",
   },
   {
-    url: "./images/nude0.jpg",
+    url: "./images/nude1.jpg",
     id: "10",
-    alt: "Before Makeup",
+    alt: "After Makeup",
   },
   {
     url: "./images/nude.jpg",

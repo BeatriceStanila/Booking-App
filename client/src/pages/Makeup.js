@@ -4,7 +4,7 @@ import { makeup } from "../images/makeup";
 function Makeup() {
   return (
     <div id="makeup">
-      <h1 className="text-4xl  text-title py-10 px-10 uppercase font-bold tracking-widest ">
+      <h1 className="text-4xl text-title py-10 px-10 uppercase font-bold tracking-widest ">
         makeup
       </h1>
       <div className="p-8 max-w-full  ">
