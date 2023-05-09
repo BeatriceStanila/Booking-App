@@ -22,8 +22,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-semibold  text-fafa text-md"
+        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg hover:text-title hover:text-xl"
       >
         <a href="/#makeup" className="flex  items-center">
           Makeup
@@ -32,8 +31,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 text-fafa  font-semibold text-md"
+        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg hover:text-title hover:text-xl"
       >
         <a href="/#lashes" className="flex items-center">
           Lashes
@@ -43,8 +41,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 text-fafa  font-semibold text-md"
+        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
       >
         <a href="/#contact" className="flex items-center scroll-smooth ">
           Contact
@@ -58,8 +55,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 font-semibold  text-fafa text-md"
+        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -71,8 +67,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 text-fafa  font-semibold text-md"
+        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -85,8 +80,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        color="blue-gray"
-        className="p-1 text-fafa  font-semibold text-md"
+        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -107,7 +101,7 @@ export default function NavBar() {
             <Typography
               as="a"
               href="/#home"
-              className=" cursor-pointer tracking-widest text-white text-md font-semibold font-serif "
+              className=" cursor-pointer md:tracking-widestt  text-white text-lg font-semibold font-serif hover:text-title hover:text-xl "
             >
               CC | MAKEUP & LASHES
             </Typography>

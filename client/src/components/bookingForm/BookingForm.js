@@ -102,7 +102,7 @@ export default function BookingForm({
         <div className="flex justify-center border border-title px-10 py-10 w-full  md:w-3/4 lg:w-1/2 bg-gradient-to-r from-navbar via-btn to-btnHover  rounded-lg shadow-lg">
           <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-10">
-              <h1 className="text-title font-bold font-dancing text-center text-4xl">
+              <h1 className="text-title uppercase tracking-wide font-bold font-serif text-center text-4xl">
                 Book Appointment
               </h1>
             </div>
@@ -145,14 +145,14 @@ export default function BookingForm({
               </div>
             </div>
 
-            {/* {time && ( */}
-            <button
-              onClick={(event) => handleSlotSelection(event, date, time)}
-              className="w-full py-3 px-4 border-2 border-primary font-sans rounded-md shadow-lg text-sm font-semibold  bg-primary leading-none hover:bg-btn hover:border-btn hover:font-semibold  hover:text-fafa  text-titl"
-            >
-              Check Availability
-            </button>
-            {/* )} */}
+            {time && (
+              <button
+                onClick={(event) => handleSlotSelection(event, date, time)}
+                className="w-full py-3 px-4 border-2 border-primary font-sans rounded-md shadow-lg text-sm font-semibold  bg-primary leading-none hover:bg-btn hover:border-btn hover:font-semibold  hover:text-fafa  text-titl"
+              >
+                Check Availability
+              </button>
+            )}
             <Modal
               isOpen={modalIsOpen}
               ariaHideApp={false}
@@ -292,7 +292,7 @@ export default function BookingForm({
                 </div>
                 <a href="/appointment">
                   <button
-                    className="w-full py-3 px-4 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+                    className="w-full py-3 px-4 mt-6 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
                     type="submit"
                   >
                     Book Me
