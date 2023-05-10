@@ -12,7 +12,11 @@ export default function Footer() {
     <footer className="w-full bg-bg py-8 px-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 text-center lg:justify-between ">
         <a href="/#">
-          <img src="./hero.svg" alt="logo-ct" className="w-20 " />
+          <img
+            src="./hero.svg"
+            alt="logo-ct"
+            className="w-20 transform hover:scale-125  "
+          />
         </a>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-4 ">
           <li>
@@ -71,21 +75,21 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <BsInstagram className="text-3xl text-btnHover hover:text-btn hover:text-4xl" />
+            <BsInstagram className="text-3xl text-btnHover hover:text-btn transform hover:scale-125" />
           </a>
           <a
             href="https://www.facebook.com/cristea.cosmina"
             target="_blank"
             rel="noreferrer"
           >
-            <BsFacebook className="text-3xl text-btnHover hover:text-btn hover:text-4xl " />
+            <BsFacebook className="text-3xl text-btnHover hover:text-btn transform hover:scale-125 " />
           </a>
           <a
             href="mailto:criss.cosmina97@gmail.com"
             target="_blank"
             rel="noreferrer"
           >
-            <BsFillEnvelopeFill className="text-3xl text-btnHover hover:text-btn hover:text-4xl" />
+            <BsFillEnvelopeFill className="text-3xl text-btnHover hover:text-btn transform hover:scale-125" />
           </a>
         </div>
       </div>

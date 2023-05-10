@@ -4,7 +4,17 @@ import ContactForm from "../components/contactForm/ContactForm";
 
 function Contact() {
   return (
-    <div id="contact" className="bg-bg p-5 ">
+    <div id="contact" className="bg-bg ">
+      <div class="relative flex  items-center md:px-7">
+        <div class="flex-grow border-t  border-title"></div>
+
+        <img
+          src="./contact.svg"
+          alt="lashes"
+          className="w-80 h-60 flex-shrink"
+        />
+        <div class="flex-grow border-t border-title"></div>
+      </div>
       <ContactForm />
       <Footer />
     </div>

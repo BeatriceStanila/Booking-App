@@ -99,7 +99,7 @@ export default function BookingForm({
             Have a look at my work and make your appointment today! 💜
           </h1>
         </div>
-        <div className="flex justify-center border border-title px-10 py-10 w-full  md:w-3/4 lg:w-1/2 bg-gradient-to-r from-navbar via-btn to-btnHover  rounded-lg shadow-lg">
+        <div className="flex justify-center  px-10 py-10 w-full  md:w-3/4 lg:w-1/2 bg-book bg-right-bottom bg-cover bg-scroll  rounded-lg shadow-lg">
           <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-10">
               <h1 className="text-title uppercase tracking-wide font-bold font-serif text-center text-4xl">

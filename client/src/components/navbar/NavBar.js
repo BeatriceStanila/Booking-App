@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { HiOutlineBars4, HiOutlineXMark } from "react-icons/hi2";
 import {
   Navbar,
   Typography,
@@ -22,7 +23,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg hover:text-title hover:text-xl"
+        className="p-1 font-semibold tracking-wide font-serif text-title text-lg hover:text-bold "
       >
         <a href="/#makeup" className="flex  items-center">
           Makeup
@@ -31,7 +32,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg hover:text-title hover:text-xl"
+        className="p-1 font-semibold tracking-wide font-serif text-title text-lg hover:text-bold "
       >
         <a href="/#lashes" className="flex items-center">
           Lashes
@@ -41,7 +42,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
+        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
       >
         <a href="/#contact" className="flex items-center scroll-smooth ">
           Contact
@@ -51,11 +52,11 @@ export default function NavBar() {
   );
 
   const mobileNavList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="mb-4 mt-2 px-7 py-3 flex flex-col gap-6 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
+        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -67,7 +68,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
+        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -80,7 +81,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-fafa text-lg  hover:text-title hover:text-xl"
+        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
         onClick={() => {
           setOpenNav(!openNav);
         }}
@@ -89,19 +90,36 @@ export default function NavBar() {
           Contact
         </a>
       </Typography>
+      <a href="/#book">
+        <Button
+          variant="gradient"
+          size="sm"
+          fullWidth
+          onClick={() => {
+            setOpenNav(!openNav);
+          }}
+          className="mb-2 text-fafa w-full md:w-1/2 py-3 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
+        >
+          <span>Book Now</span>
+        </Button>
+      </a>
     </ul>
   );
 
   return (
     <>
-      <Navbar className=" inset-0 z-10 h-max  max-w-full rounded-none py-2 px-2 lg:px-20 lg:py-2 bg-navbar  border-none ">
-        <div className="flex items-center justify-between">
+      <Navbar className=" sticky inset-0 z-10 h-max  max-w-full rounded-none drop-shadow-md py-2 px-2 lg:px-20 lg:py-4 bg-navbar  border-none ">
+        <div className="flex items-center justify-between ">
           <div className="flex items-center ">
-            <img src="./hero.svg" alt="logo" className="w-20" />
+            <img
+              src="./hero.svg"
+              alt="logo"
+              className="w-20 lg:px-5 px-2 py-2 animate-bounce"
+            />
             <Typography
               as="a"
               href="/#home"
-              className=" cursor-pointer md:tracking-widestt  text-white text-lg font-semibold font-serif hover:text-title hover:text-xl "
+              className=" cursor-pointer md:tracking-widestt  text-title text-lg font-semibold font-serif hover:text-title  "
             >
               CC | MAKEUP & LASHES
             </Typography>
@@ -112,68 +130,26 @@ export default function NavBar() {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
+                className="hidden lg:inline-block py-3 px-6 border border-btn rounded-md shadow-md text-md font-bold text-title bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-75"
               >
                 <span>Book Now</span>
               </Button>
             </a>
             <IconButton
               variant="text"
-              className="h-10 w-20 pb-5 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden "
+              className="h-10 w-20 md:pr-20 pb-10 pr-5 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden "
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
               {openNav ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <HiOutlineXMark className="text-4xl text-title font-extrabold" />
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <HiOutlineBars4 className="text-4xl text-title font-extrabold" />
               )}
             </IconButton>
           </div>
         </div>
-        {openNav && (
-          <Collapse open={openNav}>
-            {mobileNavList}
-            <a href="/#book">
-              <Button
-                variant="gradient"
-                size="sm"
-                fullWidth
-                onClick={() => {
-                  setOpenNav(!openNav);
-                }}
-                className="mb-2 text-fafa w-1/3 py-2 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover"
-              >
-                <span>Book Now</span>
-              </Button>
-            </a>
-          </Collapse>
-        )}
+        {openNav && <Collapse open={openNav}>{mobileNavList}</Collapse>}
       </Navbar>
     </>
   );

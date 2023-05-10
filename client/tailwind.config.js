@@ -10,7 +10,9 @@ module.exports = {
     },
     backgroundImage: {
       "hero-pattern": "url('../public/test.jpeg')",
-      "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      book: "url('../public/form9.jpg')",
+      bg2: "url('../public/textures4.jpg')",
+      "form-two-bg": "url('../public/concealer.jpg')",
     },
     colors: {
       primary: "#E8C4C4",

@@ -3,11 +3,19 @@ import { makeup } from "../images/makeup";
 
 function Makeup() {
   return (
-    <div id="makeup" className="bg-bg">
-      <h1 className="text-4xl text-title py-10 px-10 uppercase font-bold tracking-widest ">
-        makeup
-      </h1>
-      <div className="p-8 max-w-full  ">
+    <div id="makeup" className="bg-bg ">
+      <div class="relative flex  items-center md:px-7">
+        <div class="flex-grow border-t  border-title"></div>
+
+        <img
+          src="./makeup.svg"
+          alt="lashes"
+          className="w-80 h-60 flex-shrink"
+        />
+        <div class="flex-grow border-t border-title"></div>
+      </div>
+
+      <div className="px-8  max-w-full  ">
         <div className="grid  md:grid-cols-4 md:grid-rows-3 gap-2 md-col-span-2">
           {makeup.map((photo) => (
             <div className="w-full" key={photo.id}>
