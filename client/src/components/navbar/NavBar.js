@@ -52,74 +52,76 @@ export default function NavBar() {
   );
 
   const mobileNavList = (
-    <ul className="mb-4 mt-2 px-7 py-3 flex flex-col gap-6 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
-        onClick={() => {
-          setOpenNav(!openNav);
-        }}
-      >
-        <a href="/#makeup" className="flex  items-center">
-          Makeup
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
-        onClick={() => {
-          setOpenNav(!openNav);
-        }}
-      >
-        <a href="/#lashes" className="flex items-center">
-          Lashes
-        </a>
-      </Typography>
-
-      <Typography
-        as="li"
-        variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
-        onClick={() => {
-          setOpenNav(!openNav);
-        }}
-      >
-        <a href="/#contact" className="flex items-center scroll-smooth ">
-          Contact
-        </a>
-      </Typography>
-      <a href="/#book">
-        <Button
-          variant="gradient"
-          size="sm"
-          fullWidth
+    <ul className=" mt-2 h-screen flex flex-col  items-center ">
+      <div className="uppercase">
+        <Typography
+          as="li"
+          variant="small"
+          className=" mb-10 mt-10 font-semibold tracking-normal font-serif text-title text-2xl hover:text-title "
           onClick={() => {
             setOpenNav(!openNav);
           }}
-          className="mb-2 text-fafa w-full md:w-1/2 py-3 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
         >
-          <span>Book Now</span>
-        </Button>
-      </a>
+          <a href="/#makeup" className="flex  items-center">
+            Makeup
+          </a>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          className=" mb-10 font-semibold tracking-normal font-serif text-title text-2xl hover:text-title "
+          onClick={() => {
+            setOpenNav(!openNav);
+          }}
+        >
+          <a href="/#lashes" className="flex items-center">
+            Lashes
+          </a>
+        </Typography>
+
+        <Typography
+          as="li"
+          variant="small"
+          className=" mb-10 font-semibold tracking-normal font-serif text-title text-2xl  hover:text-title "
+          onClick={() => {
+            setOpenNav(!openNav);
+          }}
+        >
+          <a href="/#contact" className="flex items-center scroll-smooth ">
+            Contact
+          </a>
+        </Typography>
+        <a href="/#book">
+          <Button
+            variant="gradient"
+            size="sm"
+            fullWidth
+            onClick={() => {
+              setOpenNav(!openNav);
+            }}
+            className=" text-fafa w-full md:w-1/2 py-3 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
+          >
+            <span>Book Now</span>
+          </Button>
+        </a>
+      </div>
     </ul>
   );
 
   return (
     <>
-      <Navbar className=" sticky inset-0 z-10 h-max  max-w-full rounded-none drop-shadow-md py-2 px-2 lg:px-20 lg:py-4 bg-navbar  border-none ">
+      <Navbar className=" sticky inset-0 z-10 h-max  max-w-full rounded-none drop-shadow-md py-2 px-2 lg:px-20 lg:py-4  bg-navbar  border-none ">
         <div className="flex items-center justify-between ">
           <div className="flex items-center ">
             <img
               src="./hero.svg"
               alt="logo"
-              className="w-20 lg:px-5 px-2 py-2 animate-bounce"
+              className="w-20 lg:px-5 px-2 py-2 "
             />
             <Typography
               as="a"
-              href="/#home"
-              className=" cursor-pointer md:tracking-widestt  text-title text-lg font-semibold font-serif hover:text-title  "
+              href="/#"
+              className="cursor-pointer md:tracking-widestt  text-title text-lg font-semibold font-serif hover:text-title  "
             >
               CC | MAKEUP & LASHES
             </Typography>

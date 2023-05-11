@@ -3,7 +3,7 @@ import React from "react";
 function Hero() {
   return (
     <div className="flex flex-col">
-      <div className="bg-hero-pattern  bg-cover bg-fixed bg-no-repeat bg-center w-full">
+      <div className="bg-hero-pattern  bg-cover  bg-no-repeat bg-center w-full">
         <div className="md:items-left justify-between lg:px-20 px-5 pt-10 md:pb-10 pb-20">
           <div className="md:py-20 md:pb-40 ">
             <h1 className="uppercase font-semibold tracking-widestt text-title mb-6">
