@@ -24,7 +24,7 @@ function Hero() {
             <div className="flex py-5">
               <a
                 href="/#book"
-                className=" py-4  px-10 border border-btn rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+                className=" py-4 px-10 border border-btn rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
               >
                 Book Now
               </a>

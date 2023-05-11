@@ -93,8 +93,8 @@ export default function BookingForm({
 
   return (
     <div id="appointment-form" className="flex">
-      <div className="block md:flex lg:justify-between  py-20 px-10 gap-2">
-        <div className=" py-20 md:w-3/4">
+      <div className="block md:flex lg:justify-between py-20 md:mx-10 mx-5 gap-2">
+        <div className=" py-20 px-5 md:w-3/4 ">
           <h1 className="md:text-6xl text-3xl text-title font-serif font-semibold tracking-wider ">
             Have a look at my work and make your appointment today! 💜
           </h1>
