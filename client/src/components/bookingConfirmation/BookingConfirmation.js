@@ -28,17 +28,18 @@ function BookingConfirmation({ name, date, time, service, formSubmitted }) {
       contentLabel="Booking Completed"
       className="fixed inset-0  flex justify-center items-center"
     >
-      <div className="absolute lg:w-1/2 h-80 bg-card rounded-lg shadow-lg px-5 flex flex-col justify-center items-center">
+      <div className="absolute lg:w-1/2 h-80 bg-card rounded-lg shadow-lg px-20 flex flex-col justify-center items-center">
         <h1 className="text-2xl font-bold mb-10 text-title">
           Booking Completed 🖤
         </h1>
-        <p className="text-center mb-4 text-body">
+        <p className=" mb-4 text-body">
           {" "}
           Hi, {name} ! I will see you on {date} at {time} for {service}{" "}
           appointment.
         </p>
-        <p className="text-center mb-4 text-body">
-          If you can make it, please send me a message at 0729438312.
+        <p className="text-center mb-4  text-body">
+          If for any reason you are unable to make it, please let me know as
+          soon as possible so we can reschedule. You can reach me at 0729438312.
         </p>
         <p className="mb-5 text-sm font-semibold text-title">Cosmina x</p>
         <button
