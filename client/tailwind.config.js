@@ -9,8 +9,9 @@ module.exports = {
       xl: "1440px",
     },
     backgroundImage: {
-      "hero-pattern": "url('../public/test.jpeg')",
+      "hero-pattern": "url('../public/hero.jpeg')",
       book: "url('../public/form9.jpg')",
+      phone: "url('./public/phone.jpeg')",
     },
     colors: {
       primary: "#E8C4C4",
