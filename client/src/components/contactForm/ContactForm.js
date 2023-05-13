@@ -53,6 +53,7 @@ function ContactForm() {
               id="full-name"
               type="text"
               placeholder="Full Name"
+              required
             />
           </div>
           <div className="mb-4">
@@ -68,6 +69,7 @@ function ContactForm() {
               id="email"
               type="email"
               placeholder="Email"
+              required
             />
           </div>
           <div className="mb-4">
@@ -98,6 +100,7 @@ function ContactForm() {
               id="message"
               rows="3"
               placeholder="Message"
+              required
             ></textarea>
           </div>
           <div className="flex justify-center pb-5">
