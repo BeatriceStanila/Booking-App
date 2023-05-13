@@ -4,7 +4,7 @@ import BookPage from "../../pages/BookPage";
 function Hero() {
   return (
     <div class="flex flex-col md:flex-row bg-book bg-cover bg-no-repeat md:bg-center bg-right">
-      <div class="w-full md:w-2/3 lg:px-20 px-5 pt-10 md:pb-10 pb-20">
+      <div class="md:w-2/3 lg:px-20 px-5 pt-10 md:pb-10 pb-20">
         <div class="md:py-20 ">
           <h1 class="uppercase font-semibold tracking-widest text-title mb-6">
             hi there, gorgeous!
