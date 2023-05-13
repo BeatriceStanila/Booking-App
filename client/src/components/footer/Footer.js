@@ -9,7 +9,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-bg py-8 px-8">
+    <footer className="w-full bg-white py-8 px-8">
       <div className="flex flex-row flex-wrap mx-5 items-center gap-y-6 gap-x-12 text-center justify-between ">
         <a href="/#">
           <img

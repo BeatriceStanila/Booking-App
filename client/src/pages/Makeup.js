@@ -3,7 +3,7 @@ import { makeup } from "../images/makeup";
 
 function Makeup() {
   return (
-    <div id="makeup" className="bg-bg ">
+    <div id="makeup" className="bg-white ">
       <div class="relative flex  items-center md:px-7">
         <div class="flex-grow border-t  border-title"></div>
 

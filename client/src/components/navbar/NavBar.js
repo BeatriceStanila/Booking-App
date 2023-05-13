@@ -38,16 +38,6 @@ export default function NavBar() {
           Lashes
         </a>
       </Typography>
-
-      <Typography
-        as="li"
-        variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-title text-lg  hover:text-title "
-      >
-        <a href="/#contact" className="flex items-center scroll-smooth ">
-          Contact
-        </a>
-      </Typography>
     </ul>
   );
 
@@ -79,19 +69,7 @@ export default function NavBar() {
           </a>
         </Typography>
 
-        <Typography
-          as="li"
-          variant="small"
-          className=" mb-10 font-semibold tracking-normal font-serif text-title text-2xl  hover:text-title "
-          onClick={() => {
-            setOpenNav(!openNav);
-          }}
-        >
-          <a href="/#contact" className="flex items-center scroll-smooth ">
-            Contact
-          </a>
-        </Typography>
-        <a href="/#book">
+        <a href="/#contact">
           <Button
             variant="gradient"
             size="sm"
@@ -101,7 +79,7 @@ export default function NavBar() {
             }}
             className=" text-fafa w-full md:w-1/2 py-3 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
           >
-            <span>Book Now</span>
+            <span>Contact Me</span>
           </Button>
         </a>
       </div>
@@ -113,11 +91,14 @@ export default function NavBar() {
       <Navbar className=" sticky inset-0 z-10 h-max  max-w-full rounded-none drop-shadow-md py-2 px-2 lg:px-20 lg:py-4  bg-navbar  border-none ">
         <div className="flex items-center justify-between ">
           <div className="flex items-center ">
-            <img
-              src="./hero.svg"
-              alt="logo"
-              className="w-20 lg:px-5 px-2 py-2 "
-            />
+            <a href="/#">
+              <img
+                src="./hero.svg"
+                alt="logo"
+                className="w-20 lg:px-5 px-2 py-2 "
+              />
+            </a>
+
             <Typography
               as="a"
               href="/#"
@@ -128,13 +109,13 @@ export default function NavBar() {
           </div>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
-            <a href="/#book" className=" scroll-m-5">
+            <a href="/#contact" className=" scroll-m-5">
               <Button
                 variant="gradient"
                 size="sm"
                 className="hidden lg:inline-block py-3 px-6 border border-btn rounded-md shadow-md text-md font-bold text-title bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-75"
               >
-                <span>Book Now</span>
+                <span>Contact Me</span>
               </Button>
             </a>
             <IconButton

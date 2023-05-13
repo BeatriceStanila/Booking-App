@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Hero />
-      <BookPage />
+
       <Makeup />
       <Lashes />
       <Contact />

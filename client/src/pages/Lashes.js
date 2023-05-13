@@ -3,7 +3,7 @@ import { lashes } from "../images/lashes/lashes";
 
 function Lashes() {
   return (
-    <div id="lashes" className="bg-bg">
+    <div id="lashes" className="bg-white">
       <div class="relative flex  items-center md:px-7">
         <div class="flex-grow border-t  border-title"></div>
 

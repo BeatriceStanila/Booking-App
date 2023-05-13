@@ -4,7 +4,7 @@ import ContactForm from "../components/contactForm/ContactForm";
 
 function Contact() {
   return (
-    <div id="contact" className="bg-bg ">
+    <div id="contact" className="bg-white ">
       <div class="relative flex  items-center md:px-7">
         <div class="flex-grow border-t  border-title"></div>
 

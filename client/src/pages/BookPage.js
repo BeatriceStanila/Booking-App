@@ -21,7 +21,7 @@ function BookPage() {
     setFormSubmitted(true);
   };
   return (
-    <div id="book" className="bg-bg">
+    <div id="book">
       <BookedSlots setBookedSlots={setBookedSlots} />
 
       <BookingForm

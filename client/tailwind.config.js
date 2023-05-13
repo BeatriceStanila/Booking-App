@@ -10,8 +10,7 @@ module.exports = {
     },
     backgroundImage: {
       "hero-pattern": "url('../public/hero.jpeg')",
-      book: "url('../public/form9.jpg')",
-      phone: "url('./public/phone.jpeg')",
+      book: "url('../public/hero.jpg')",
     },
     colors: {
       primary: "#E8C4C4",
@@ -19,7 +18,7 @@ module.exports = {
       base: "#CE7777",
       footer: "#2B3A55",
       cream: "#FDEFEF",
-      white: "#fff",
+      white: "#FFFFFF",
       btn: "#D14D72",
       btnHover: "#CD867D",
       card: "#FFDDD2",
@@ -28,7 +27,7 @@ module.exports = {
       green: "#62D2A2",
       darkGreen: "#679B9B",
       logo: "#03072b",
-      navbar: "#FFABAB",
+      navbar: "#FCC8D1",
       fafa: "#FAFAFA",
       powder: "#D894C4",
       bg: "#FDF8F4",
