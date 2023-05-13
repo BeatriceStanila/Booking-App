@@ -94,9 +94,9 @@ export default function BookingForm({
   return (
     <div
       id="appointment-form"
-      className="flex md:justify-end md:pr-20 px-2 justify-center md:pt-40  align-middle"
+      className="flex md:justify-end lg:pr-20 px-2 justify-center md:pt-40"
     >
-      <div className="flex px-10 py-10 w-full  lg:w-2/3 border border-title bg-white rounded-lg shadow-lg">
+      <div className="flex px-10 py-10 w-full  lg:w-full justify-center border border-title bg-white rounded-lg shadow-lg">
         <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-10">
             <h1 className="text-title uppercase tracking-wide font-bold font-serif text-center text-4xl">
