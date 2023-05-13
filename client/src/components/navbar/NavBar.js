@@ -121,7 +121,7 @@ export default function NavBar() {
             <Typography
               as="a"
               href="/#"
-              className="cursor-pointer md:tracking-widestt  text-title text-lg font-semibold font-serif hover:text-title  "
+              className="cursor-pointer md:tracking-widestt  text-title md:text-lg text-sm font-semibold font-serif hover:text-title  "
             >
               CC | MAKEUP & LASHES
             </Typography>
