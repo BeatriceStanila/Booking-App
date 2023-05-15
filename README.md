@@ -37,7 +37,7 @@ The application was built using:
 - **[Mongoose](https://www.npmjs.com/package/mongoose):** Used create and manage the database, as well as handle HTTP requests between the frontend and backend.
 - **[Nodemailer](https://www.npmjs.com/package/nodemailer):** Send email from Node.js once a client makes an appointment.
 - **[CORS](https://www.npmjs.com/package/cors):** To enable cross-domain communication between the frontend and backend servers.
-- **[Typewriter](https://www.npmjs.com/package/typewriter):**
+- **[Typewriter-Effect](https://www.npmjs.com/package/typewriter-effect):**
 - **[React-Icons](https://www.npmjs.com/package/moment):** Used react-icons for creating the hamburger menu in the mobile version of the app.
 - **[@EmailJS/Browser](https://www.npmjs.com/package/@emailjs/browser):** Used to create a contact form on the frontend and handle form submissions by sending an email to the designated email address.
 - **[React Date Picker](https://www.npmjs.com/package/react-datepicker):** Used to select the date and time in appointment form.
