@@ -26,10 +26,10 @@ function Hero() {
           <h1 className="uppercase font-normal tracking-widest font-sans text-title mb-6 mt-6">
             hi there, gorgeous!
           </h1>
-          <h2 className="text-6xl uppercase font-bold font-poppins tracking-normal w-2/2 mb-3 leading-snug text-title">
+          <h2 className="md:text-6xl text-3xl uppercase font-bold font-poppins tracking-normal w-2/2 mb-3 md:leading-snug text-title">
             Unleash your inner beauty
           </h2>
-          <div className="font-semibold font-sans text-btn md:tracking-widest text-5xl leading-relaxed mb-3">
+          <div className="font-semibold font-sans text-btn md:tracking-widest md:text-5xl text-2xl leading-relaxed mb-3">
             Cosmina Cristea
           </div>
           <h3 className="text-title uppercase font-sans font-normal tracking-widest text-2xl leading-relaxed pb-10 ">
