@@ -99,13 +99,13 @@ export default function BookingForm({
       <div className="flex px-10 py-10 w-full  lg:w-full justify-center border border-title bg-white rounded-lg shadow-lg">
         <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-10">
-            <h1 className="text-title uppercase tracking-wide font-semibold font-adelia text-center text-4xl">
+            <h1 className="text-title uppercase tracking-wide font-semibold font-poppins text-center text-4xl">
               Book Appointment
             </h1>
           </div>
           <div className="mb-5">
             <label
-              className="block text-sm font-dancing font-normal text-title mb-1"
+              className="block text-sm font-sans font-normal text-title mb-1"
               htmlFor="date"
             >
               Select Date
@@ -157,18 +157,18 @@ export default function BookingForm({
             className="fixed inset-0  flex justify-center items-center"
           >
             <div className="absolute w-96 h-80 bg-navbar rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
-              <h1 className="text-2xl font-bold mb-10 text-title font-dancing">
+              <h1 className="text-2xl font-bold mb-10 text-title font-poppins">
                 Slot Not Available ☹️
               </h1>
-              <p className="text-center text-lg mb-6 text-body font-dancing">
+              <p className="text-center text-lg mb-6 text-body font-sans">
                 I'm sorry but this slot is not available. Please select another
                 date and time.
               </p>
-              <p className="mb-5 text-md font-semibold font-dancing text-btn ">
+              <p className="mb-5 text-md font-semibold font-sans text-btn ">
                 Cosmina x
               </p>
               <button
-                className=" px-6 py-2 font-semibold text-white font-dancing tracking-widest shadow-sm bg-btn rounded hover:bg-btnHover duration-200 delay-200"
+                className=" px-6 py-2 font-semibold text-white font-poppins tracking-widest shadow-sm bg-btn rounded hover:bg-btnHover duration-200 delay-200"
                 onClick={closeModal}
               >
                 OK
@@ -181,7 +181,7 @@ export default function BookingForm({
             <>
               <div className="mb-5">
                 <label
-                  className="block text-sm font-normal font-dancing text-title"
+                  className="block text-sm font-normal font-sans text-title"
                   htmlFor="name"
                 >
                   Full Name
@@ -208,7 +208,7 @@ export default function BookingForm({
 
               <div className="mb-5">
                 <label
-                  className="block text-sm font-normal font-dancing  text-title"
+                  className="block text-sm font-normal font-sans  text-title"
                   htmlFor="phoneNumber"
                 >
                   Phone Number
@@ -235,7 +235,7 @@ export default function BookingForm({
 
               <div className="mb-5">
                 <label
-                  className="block text-sm font-normal font-dancing  text-title"
+                  className="block text-sm font-normal font-sans  text-title"
                   htmlFor="service"
                 >
                   Select Service
@@ -266,7 +266,7 @@ export default function BookingForm({
 
               <div className="mb-5">
                 <label
-                  className="block text-sm font-normal font-dancing  text-title"
+                  className="block text-sm font-normal font-sans  text-title"
                   htmlFor="details"
                 >
                   Message
@@ -287,7 +287,7 @@ export default function BookingForm({
               </div>
               <a href="/appointment">
                 <button
-                  className="w-full py-3 px-4 mt-6 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
+                  className="w-full py-3 px-4 mt-6 border border-btn rounded-md shadow-lg text-sm font-poppins font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
                   type="submit"
                 >
                   Book Me

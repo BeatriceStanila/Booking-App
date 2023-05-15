@@ -26,7 +26,7 @@ function Hero() {
           <h1 className="uppercase font-normal tracking-widest font-sans text-title mb-6 mt-6">
             hi there, gorgeous!
           </h1>
-          <h2 className="text-6xl uppercase font-bold font-adelia tracking-normal w-2/2 mb-3 leading-snug text-title">
+          <h2 className="text-6xl uppercase font-bold font-poppins tracking-normal w-2/2 mb-3 leading-snug text-title">
             Unleash your inner beauty
           </h2>
           <div className="font-semibold font-sans text-btn md:tracking-widest text-5xl leading-relaxed mb-3">
@@ -42,7 +42,7 @@ function Hero() {
             />
           </h3>
 
-          <h3 className="uppercase font-dancing font-semibold tracking-wider">
+          <h3 className="uppercase font-sans font-semibold tracking-wider">
             <a
               href="/#contact"
               className="py-4 px-10 border border-btn rounded-md shadow-lg text-md  text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"

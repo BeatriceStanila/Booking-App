@@ -36,13 +36,13 @@ function ContactForm() {
   return (
     <div className="px-5 pb-10">
       <div className="bg-book bg-cover bg-center shadow-lg border border-title rounded-lg p-5 mx-auto md:w-2/4 lg:w-1/3">
-        <h1 className="text-3xl text-center font-bold font-dancing mb-8 uppercase tracking-wider    ">
+        <h1 className="text-3xl text-center font-bold font-poppins mb-8 uppercase tracking-wider    ">
           Contact Me
         </h1>
         <form ref={form} onSubmit={sendEmail}>
           <div className="mb-4">
             <label
-              className="block text-title font-dancing text-sm mb-2"
+              className="block text-title font-sans text-sm mb-2"
               htmlFor="full-name"
             >
               Full Name
@@ -58,7 +58,7 @@ function ContactForm() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-title font-dancing text-sm mb-2"
+              className="block text-title font-sans text-sm mb-2"
               htmlFor="email"
             >
               Email
@@ -74,7 +74,7 @@ function ContactForm() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-title font-dancing text-sm mb-2"
+              className="block text-title font-sans text-sm mb-2"
               htmlFor="phone-number"
             >
               Phone Number
@@ -89,7 +89,7 @@ function ContactForm() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-title font-dancing text-sm mb-2"
+              className="block text-title font-sans text-sm mb-2"
               htmlFor="message"
             >
               Message
@@ -107,7 +107,7 @@ function ContactForm() {
             <input
               type="submit"
               value="SEND"
-              className="w-full py-3 px-4 border border-btn font-dancing tracking-widest rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover duration-200 delay-200"
+              className="w-full py-3 px-4 border border-btn font-sans tracking-widest rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover duration-200 delay-200"
             />
           </div>
           <Modal
@@ -118,18 +118,18 @@ function ContactForm() {
             className="fixed inset-0  flex justify-center items-center"
           >
             <div className="absolute w-96 h-80 bg-navbar rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
-              <h1 className="text-2xl font-bold mb-10 text-title font-dancing">
+              <h1 className="text-2xl font-bold mb-10 text-title font-sans">
                 Message Sent 🚀
               </h1>
-              <p className="text-center mb-4 text-body font-dancing">
+              <p className="text-center mb-4 text-body font-sans">
                 Thank you for contacting me! I wil get back to you as soon as
                 possible.
               </p>
-              <p className="mb-5 text-sm font-semibold text-btn font-dancing">
+              <p className="mb-5 text-sm font-semibold text-btn font-sans">
                 Cosmina x
               </p>
               <button
-                className=" px-6 py-3 font-semibold font-dancing tracking-widest text-white shadow-sm bg-btn rounded hover:bg-btnHover duration-200 delay-200"
+                className=" px-6 py-3 font-semibold font-poppins tracking-widest text-white shadow-sm bg-btn rounded hover:bg-btnHover duration-200 delay-200"
                 onClick={closeModal}
               >
                 OK
