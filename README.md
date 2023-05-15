@@ -1,6 +1,5 @@
 ## CC | Makeup & Lashes - Booking App
 
-
 CC | Makeup & Lashes is a booking application for a professional Makeup and Lash Artist, designed to help clients schedule appointments online with ease. The application provides a user-friendly interface where clients can browse through Cosmina's portfolio, select the desired service, and book an appointment. The application also features a contact form where clients can make inquiries or request additional information about Cosmina's services.
 
 When a client books an appointment using the application, Cosmina will receive an email with all the details of the appointment. This helps to ensure that appointments are managed smoothly and in a timely manner. In addition, the date and time of the appointment are saved in a secure database to prevent double-booking and ensure that each client has a dedicated time slot for their appointment.
@@ -70,4 +69,6 @@ The application was built using:
 
 ## Deployment
 
-Both the server-side and client-side of the application are deployed on Render, a cloud-based platform that simplifies the process of deploying and managing applications.
+Backend is deployed on Cyclic - because on Render the web service stops after 15 minutes of inactivity and it does not start again when the app is being used.
+
+Frontend is deployed on Render.
