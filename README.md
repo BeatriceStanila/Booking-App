@@ -1,6 +1,5 @@
-# CC | Makeup & Lashes - Booking App
+## CC | Makeup & Lashes - Booking App
 
-<hr>
 
 CC | Makeup & Lashes is a booking application for a professional Makeup and Lash Artist, designed to help clients schedule appointments online with ease. The application provides a user-friendly interface where clients can browse through Cosmina's portfolio, select the desired service, and book an appointment. The application also features a contact form where clients can make inquiries or request additional information about Cosmina's services.
 
@@ -37,7 +36,6 @@ The application was built using:
 
 - **[Axios](https://www.npmjs.com/package/axios):** Promise based HTTP client for the browser and node.js. It was used for CRUD operations.
 - **[Mongoose](https://www.npmjs.com/package/mongoose):** Used create and manage the database, as well as handle HTTP requests between the frontend and backend.
-- **[](https://www.npmjs.com/package/tailwindcss-themer)**
 - **[Nodemailer](https://www.npmjs.com/package/nodemailer):** Send email from Node.js once a client makes an appointment.
 - **[CORS](https://www.npmjs.com/package/cors):** To enable cross-domain communication between the frontend and backend servers.
 - **[Typewriter](https://www.npmjs.com/package/typewriter):**
