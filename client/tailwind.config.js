@@ -33,9 +33,11 @@ module.exports = {
       bg: "#FDF8F4",
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      sans: ["Roboto", "sans-serif"],
       dancing: ["Dancing Script", "cursive"],
+      mono: ["Monaco", "ui-monospace"],
+      adelia: ["ADELIA", "cursive"],
+      poppins: ["Poppins", "sans-serif"],
     },
     letterSpacing: {
       tightest: "-.075em",
@@ -47,7 +49,12 @@ module.exports = {
       widest: ".1em",
       widestt: ".25em",
     },
-    extend: {},
+    extend: {
+      lineHeight: {
+        "extra-loose": "2.5",
+        12: "3rem",
+      },
+    },
   },
   plugins: [],
 };

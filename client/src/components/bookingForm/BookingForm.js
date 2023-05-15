@@ -94,18 +94,18 @@ export default function BookingForm({
   return (
     <div
       id="appointment-form"
-      className="flex md:justify-end lg:pr-20 px-2 justify-center md:pt-40"
+      className="flex md:justify-end lg:pr-20 px-2 justify-center md:pt-40 md:pb-10"
     >
       <div className="flex px-10 py-10 w-full  lg:w-full justify-center border border-title bg-white rounded-lg shadow-lg">
         <form className="mb-0 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-10">
-            <h1 className="text-title uppercase tracking-wide font-bold font-serif text-center text-4xl">
+            <h1 className="text-title uppercase tracking-wide font-semibold font-adelia text-center text-4xl">
               Book Appointment
             </h1>
           </div>
           <div className="mb-5">
             <label
-              className="block text-sm font-medium text-title mb-1"
+              className="block text-sm font-dancing font-normal text-title mb-1"
               htmlFor="date"
             >
               Select Date
@@ -122,7 +122,7 @@ export default function BookingForm({
           </div>
 
           <div className="mb-5">
-            <label className="block text-sm font-medium  text-title mb-1">
+            <label className="block text-sm font-normal font-dancing  text-title mb-1">
               Select Time
             </label>
             <div>
@@ -144,7 +144,7 @@ export default function BookingForm({
           {time && (
             <button
               onClick={(event) => handleSlotSelection(event, date, time)}
-              className="w-full py-3 px-4 border-2 border-primary font-sans rounded-md shadow-lg text-sm font-semibold  bg-primary leading-none hover:bg-btn hover:border-btn hover:font-semibold  hover:text-fafa  text-titl"
+              className="w-full py-3 px-4 border-2 border-navbar text-title font-sans rounded-md shadow-lg text-md font-normal tracking-wide  bg-navbar leading-none hover:bg-btn hover:border-btn hover:font-semibold hover:text-white transition-color "
             >
               Check Availability
             </button>
@@ -156,17 +156,19 @@ export default function BookingForm({
             contentLabel="Date and time not available"
             className="fixed inset-0  flex justify-center items-center"
           >
-            <div className="absolute w-96 h-80 bg-card rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
-              <h1 className="text-2xl font-bold mb-10 text-title">
+            <div className="absolute w-96 h-80 bg-navbar rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
+              <h1 className="text-2xl font-bold mb-10 text-title font-dancing">
                 Slot Not Available ☹️
               </h1>
-              <p className="text-center mb-4 text-body">
+              <p className="text-center text-lg mb-6 text-body font-dancing">
                 I'm sorry but this slot is not available. Please select another
                 date and time.
               </p>
-              <p className="mb-5 text-sm font-semibold text-title">Cosmina x</p>
+              <p className="mb-5 text-md font-semibold font-dancing text-btn ">
+                Cosmina x
+              </p>
               <button
-                className=" px-6 py-2 font-semibold text-title shadow-sm bg-btn rounded hover:bg-btnHover"
+                className=" px-6 py-2 font-semibold text-white font-dancing tracking-widest shadow-sm bg-btn rounded hover:bg-btnHover duration-200 delay-200"
                 onClick={closeModal}
               >
                 OK
@@ -179,7 +181,7 @@ export default function BookingForm({
             <>
               <div className="mb-5">
                 <label
-                  className="block text-sm font-medium  text-title"
+                  className="block text-sm font-normal font-dancing text-title"
                   htmlFor="name"
                 >
                   Full Name
@@ -206,7 +208,7 @@ export default function BookingForm({
 
               <div className="mb-5">
                 <label
-                  className="block text-sm font-medium  text-title"
+                  className="block text-sm font-normal font-dancing  text-title"
                   htmlFor="phoneNumber"
                 >
                   Phone Number
@@ -233,7 +235,7 @@ export default function BookingForm({
 
               <div className="mb-5">
                 <label
-                  className="block text-sm font-medium  text-title"
+                  className="block text-sm font-normal font-dancing  text-title"
                   htmlFor="service"
                 >
                   Select Service
@@ -264,7 +266,7 @@ export default function BookingForm({
 
               <div className="mb-5">
                 <label
-                  className="block text-sm font-medium  text-title"
+                  className="block text-sm font-normal font-dancing  text-title"
                   htmlFor="details"
                 >
                   Message
@@ -285,7 +287,7 @@ export default function BookingForm({
               </div>
               <a href="/appointment">
                 <button
-                  className="w-full py-3 px-4 mt-6 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+                  className="w-full py-3 px-4 mt-6 border border-btn rounded-md shadow-lg text-sm font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
                   type="submit"
                 >
                   Book Me

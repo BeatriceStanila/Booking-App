@@ -23,7 +23,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-title text-lg hover:text-bold "
+        className="p-1 font-semibold tracking-wide font-dancing text-title  text-lg hover:text-btn "
       >
         <a href="/#makeup" className="flex  items-center">
           Makeup
@@ -32,7 +32,7 @@ export default function NavBar() {
       <Typography
         as="li"
         variant="small"
-        className="p-1 font-semibold tracking-wide font-serif text-title text-lg hover:text-bold "
+        className="p-1 font-semibold tracking-wide font-dancing text-title text-lg hover:text-btn "
       >
         <a href="/#lashes" className="flex items-center">
           Lashes
@@ -47,7 +47,7 @@ export default function NavBar() {
         <Typography
           as="li"
           variant="small"
-          className=" mb-10 mt-10 font-semibold tracking-normal font-serif text-title text-2xl hover:text-title "
+          className=" mb-10 mt-10 font-semibold tracking-normal font-sans text-title text-2xl  "
           onClick={() => {
             setOpenNav(!openNav);
           }}
@@ -59,7 +59,7 @@ export default function NavBar() {
         <Typography
           as="li"
           variant="small"
-          className=" mb-10 font-semibold tracking-normal font-serif text-title text-2xl hover:text-title "
+          className=" mb-10 font-semibold tracking-normal font-sans text-title text-2xl  "
           onClick={() => {
             setOpenNav(!openNav);
           }}
@@ -77,7 +77,7 @@ export default function NavBar() {
             onClick={() => {
               setOpenNav(!openNav);
             }}
-            className=" text-fafa w-full md:w-1/2 py-3 px-4 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
+            className=" text-white font-dancing tracking-wide md:w-1/2  py-3 px-6 border border-btn rounded-md shadow-md text-md font-bold bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-200"
           >
             <span>Contact Me</span>
           </Button>
@@ -102,7 +102,7 @@ export default function NavBar() {
             <Typography
               as="a"
               href="/#"
-              className="cursor-pointer md:tracking-widestt  text-title md:text-lg text-sm font-semibold font-serif hover:text-title  "
+              className="cursor-pointer md:tracking-widest   text-title md:text-lg text-sm font-semibold font-adelia hover:text-title  "
             >
               CC | MAKEUP & LASHES
             </Typography>
@@ -113,7 +113,7 @@ export default function NavBar() {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block py-3 px-6 border border-btn rounded-md shadow-md text-md font-bold text-title bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-75"
+                className="hidden lg:inline-block py-3 px-6 border border-btn rounded-md shadow-md text-md font-dancing tracking-wide font-bold text-white bg-btn hover:bg-btnHover hover:border-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover transition-color duration-200 delay-75"
               >
                 <span>Contact Me</span>
               </Button>

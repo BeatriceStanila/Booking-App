@@ -28,22 +28,24 @@ function BookingConfirmation({ name, date, time, service, formSubmitted }) {
       contentLabel="Booking Completed"
       className="fixed inset-0  flex justify-center items-center"
     >
-      <div className="absolute lg:w-1/2 h-80 bg-card rounded-lg shadow-lg px-20 flex flex-col justify-center items-center">
-        <h1 className="text-2xl font-bold mb-10 text-title">
+      <div className="absolute lg:w-1/2 h-90 bg-navbar rounded-lg shadow-lg px-10 py-10 flex flex-col  justify-center items-center">
+        <h1 className="text-2xl font-bold   font-dancing mb-10 text-title">
           Booking Completed 🖤
         </h1>
-        <p className=" mb-4 text-body">
+        <p className=" mb-4 font-dancing text-lg text-body">
           {" "}
-          Hi, {name} ! I will see you on {date} at {time} for {service}{" "}
-          appointment.
+          Hi, {name} ! I am excited to see you on {date} at {time} for your{" "}
+          {service} appointment.
         </p>
-        <p className="text-center mb-4  text-body">
+        <p className=" mb-8 font-dancing text-lg text-body ">
           If for any reason you are unable to make it, please let me know as
           soon as possible so we can reschedule. You can reach me at 0729438312.
         </p>
-        <p className="mb-5 text-sm font-semibold text-title">Cosmina x</p>
+        <p className="mb-3 text-lg font-dancing font-semibold text-btn">
+          Cosmina x
+        </p>
         <button
-          className=" px-6 py-2 font-semibold text-title shadow-sm bg-btn rounded hover:bg-btnHover"
+          className=" px-6 py-2 font-semibold font-dancing tracking-widest text-white shadow-sm bg-btn rounded hover:bg-btnHover transition-color duration-200 delay-200"
           onClick={closeModal}
         >
           OK

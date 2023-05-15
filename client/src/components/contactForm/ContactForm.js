@@ -35,21 +35,21 @@ function ContactForm() {
   };
   return (
     <div className="px-5 pb-10">
-      <div className="bg-book bg-cover bg-center shadow-lg rounded-lg p-5 mx-auto md:w-2/4 lg:w-1/3">
-        <h1 className="text-2xl text-center font-bold mb-4 uppercase tracking-wider   ">
+      <div className="bg-book bg-cover bg-center shadow-lg border border-title rounded-lg p-5 mx-auto md:w-2/4 lg:w-1/3">
+        <h1 className="text-3xl text-center font-bold font-dancing mb-8 uppercase tracking-wider    ">
           Contact Me
         </h1>
         <form ref={form} onSubmit={sendEmail}>
           <div className="mb-4">
             <label
-              className="block text-title font-semibold mb-2"
+              className="block text-title font-dancing text-sm mb-2"
               htmlFor="full-name"
             >
               Full Name
             </label>
             <input
               name="full-name"
-              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-3  px-4  shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
               id="full-name"
               type="text"
               placeholder="Full Name"
@@ -58,14 +58,14 @@ function ContactForm() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-title font-semibold mb-2"
+              className="block text-title font-dancing text-sm mb-2"
               htmlFor="email"
             >
               Email
             </label>
             <input
               name="email"
-              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-3  px-4 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
               id="email"
               type="email"
               placeholder="Email"
@@ -74,14 +74,14 @@ function ContactForm() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-title font-semibold mb-2"
+              className="block text-title font-dancing text-sm mb-2"
               htmlFor="phone-number"
             >
               Phone Number
             </label>
             <input
               name="phone"
-              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-3  px-4  shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
               id="phone-number"
               type="text"
               placeholder="Phone Number"
@@ -89,14 +89,14 @@ function ContactForm() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-title font-semibold mb-2"
+              className="block text-title font-dancing text-sm mb-2"
               htmlFor="message"
             >
               Message
             </label>
             <textarea
               name="message"
-              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-2  px-3 shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
+              className="border-2 border-primary font-sans text-sm rounded-lg w-full py-3  px-4  shadow-md focus:outline-none  focus:border-secondary focus:ring-1 focus:ring-secondary"
               id="message"
               rows="3"
               placeholder="Message"
@@ -107,7 +107,7 @@ function ContactForm() {
             <input
               type="submit"
               value="SEND"
-              className="w-full py-3 px-4 border border-btn rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover "
+              className="w-full py-3 px-4 border border-btn font-dancing tracking-widest rounded-md shadow-lg text-md font-bold text-white bg-btn hover:bg-btnHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-btnHover duration-200 delay-200"
             />
           </div>
           <Modal
@@ -117,17 +117,19 @@ function ContactForm() {
             contentLabel="Date and time not available"
             className="fixed inset-0  flex justify-center items-center"
           >
-            <div className="absolute w-96 h-80 bg-card rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
-              <h1 className="text-2xl font-bold mb-10 text-title">
-                Message Sent
+            <div className="absolute w-96 h-80 bg-navbar rounded-lg shadow-lg p-4 flex flex-col justify-center items-center">
+              <h1 className="text-2xl font-bold mb-10 text-title font-dancing">
+                Message Sent 🚀
               </h1>
-              <p className="text-center mb-4 text-body">
+              <p className="text-center mb-4 text-body font-dancing">
                 Thank you for contacting me! I wil get back to you as soon as
                 possible.
               </p>
-              <p className="mb-5 text-sm font-semibold text-title">Cosmina x</p>
+              <p className="mb-5 text-sm font-semibold text-btn font-dancing">
+                Cosmina x
+              </p>
               <button
-                className=" px-6 py-3 font-semibold text-title shadow-sm bg-btn rounded hover:bg-btnHover"
+                className=" px-6 py-3 font-semibold font-dancing tracking-widest text-white shadow-sm bg-btn rounded hover:bg-btnHover duration-200 delay-200"
                 onClick={closeModal}
               >
                 OK
