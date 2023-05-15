@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
 });
 
 const email = process.env.EMAIL;
-const password = process.env.EMAIL_PASS;
+const password = process.env.PASSWORD;
 
 /** POST REQUESTS */
 router.post("/add", async (req, res) => {

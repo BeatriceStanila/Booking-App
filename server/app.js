@@ -24,15 +24,15 @@ mongoose
   })
   .then(() => {
     console.log("DB Connected!");
+
+    // PORT
+    const PORT = process.env.PORT || 4000; // backend routing port
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}.`);
+    });
   })
   .catch((err) => {
     console.log("DB NOT Connected" + err);
   });
 
 app.use("/", router);
-
-// PORT
-const PORT = process.env.PORT || 4000; // backend routing port
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
