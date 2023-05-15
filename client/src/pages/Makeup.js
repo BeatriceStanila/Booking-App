@@ -4,15 +4,15 @@ import { makeup } from "../images/makeup";
 function Makeup() {
   return (
     <div id="makeup" className="bg-white ">
-      <div class="relative flex  items-center md:px-7">
-        <div class="flex-grow border-t  border-title"></div>
+      <div className="relative flex  items-center md:px-7">
+        <div className="flex-grow border-t  border-title"></div>
 
         <img
           src="./makeup.svg"
           alt="lashes"
           className="w-80 h-60 flex-shrink"
         />
-        <div class="flex-grow border-t border-title"></div>
+        <div className="flex-grow border-t border-title"></div>
       </div>
 
       <div className="px-8  max-w-full  ">
