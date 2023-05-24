@@ -122,7 +122,7 @@ export default function BookingForm({
           </div>
 
           <div className="mb-5">
-            <label className="block text-sm font-normal font-dancing  text-title mb-1">
+            <label className="block text-sm font-normal font-sans  text-title mb-1">
               Select Time
             </label>
             <div>

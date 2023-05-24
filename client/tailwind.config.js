@@ -34,10 +34,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
-      dancing: ["Dancing Script", "cursive"],
       mono: ["Monaco", "ui-monospace"],
-      adelia: ["ADELIA", "cursive"],
-      poppins: ["Poppins", "sans-serif"],
     },
     letterSpacing: {
       tightest: "-.075em",
