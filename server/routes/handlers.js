@@ -27,9 +27,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-const email = process.env.EMAIL;
-const password = process.env.PASSWORD;
-
 /** POST REQUESTS */
 router.post("/add", async (req, res) => {
   try {
@@ -51,15 +48,15 @@ router.post("/add", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: email,
-        pass: password,
+        user: "ccmakeup09@gmail.com",
+        pass: "moimohrhqdcrtgvq",
       },
     });
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: "beatrice.stanila@gmail.com",
-      to: "beatrice.stanila@gmail.com",
+      to: "ccmakeup09@gmail.com",
       subject: "New Booking 💜",
       html: `<p>Hi Cosmina</p>
                <p>You have a new appointment with ${client.name} on ${client.date} at ${client.time} for ${client.service}.  </p>
